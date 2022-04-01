@@ -60,6 +60,21 @@ namespace WindowsFormsApp10
             mouseDown = false;
             
         }
+
         ////////////////////////////////////////////////////////////////
+        /// Enter para continuar
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                conx.conexionSQL(txtUser.Text, txtPassword.Text);
+                if (conx.conectado) { this.Hide(); }
+            }
+        }
+        ////////////////////////////////////////////////////////////////
+        ///
+
+
     }
 }
