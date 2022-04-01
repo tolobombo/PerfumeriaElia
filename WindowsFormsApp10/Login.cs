@@ -18,13 +18,13 @@ namespace WindowsFormsApp10
             InitializeComponent();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void btnLogin_Click_1(object sender, EventArgs e)
         {
-            conx.conexionSQL(txtUser.Text,txtPassword.Text);
+            conx.conexionSQL(txtUser.Text, txtPassword.Text);
             if (conx.conectado) { this.Hide(); }
         }
 
-        private void btnSalir_Click(object sender, EventArgs e)
+        private void btnSalir_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
         }
@@ -32,11 +32,6 @@ namespace WindowsFormsApp10
         public void loginError()
         {
             MessageBox.Show("El Usuario/Contraseña No Es Valido, Intentelo De Nuevo.");
-        }
-
-        private void txtUser_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
