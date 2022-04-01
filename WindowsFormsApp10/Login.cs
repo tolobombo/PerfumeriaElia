@@ -33,5 +33,10 @@ namespace WindowsFormsApp10
         {
             MessageBox.Show("El Usuario/Contraseña No Es Valido, Intentelo De Nuevo.");
         }
+
+        private void txtUser_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -50,14 +50,15 @@
             // 
             // txtUser
             // 
-            this.txtUser.Location = new System.Drawing.Point(95, 107);
+
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(100, 20);
             this.txtUser.TabIndex = 1;
+            this.txtUser.TextChanged += new System.EventHandler(this.txtUser_TextChanged);
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(95, 191);
+
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(100, 20);
             this.txtPassword.TabIndex = 2;
@@ -92,7 +93,7 @@
             // btnSalir
             // 
             this.btnSalir.Location = new System.Drawing.Point(118, 301);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(2);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(56, 19);
             this.btnSalir.TabIndex = 6;
