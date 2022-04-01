@@ -18,6 +18,7 @@ namespace WindowsFormsApp10
             InitializeComponent();
         }
 
+        //manda el texto por el metodo a la clase de conexion
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
             conx.conexionSQL(txtUser.Text, txtPassword.Text);
@@ -33,5 +34,32 @@ namespace WindowsFormsApp10
         {
             MessageBox.Show("El Usuario/Contraseña No Es Valido, Intentelo De Nuevo.");
         }
+
+        /////////////////////////////////////////////////////////////////
+        //para poder arrastrar la ventana desde el panel superior
+        bool mouseDown;
+        private Point mousePos;
+        private void panel4_MouseDown(object sender, MouseEventArgs e)
+        {
+            mousePos.X = e.X;
+            mousePos.Y = e.Y;
+            mouseDown = true;
+        }
+
+        private void panel4_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown == true)
+            {
+                Point currentScreenPos = PointToScreen(e.Location);
+                Location = new Point(currentScreenPos.X - mousePos.X, currentScreenPos.Y - mousePos.Y);
+            }
+        }
+
+        private void panel4_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
+            
+        }
+        ////////////////////////////////////////////////////////////////
     }
 }
