@@ -49,7 +49,7 @@
             // 
             // txtUser
             // 
-            this.txtUser.Location = new System.Drawing.Point(95, 115);
+            this.txtUser.Location = new System.Drawing.Point(95, 119);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(100, 20);
             this.txtUser.TabIndex = 1;
