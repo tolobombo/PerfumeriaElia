@@ -72,6 +72,10 @@ namespace WindowsFormsApp10
                 if (conx.conectado) { this.Hide(); }
             }
         }
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
         ////////////////////////////////////////////////////////////////
         ///
 
