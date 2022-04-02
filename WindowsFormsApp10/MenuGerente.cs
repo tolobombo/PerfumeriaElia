@@ -12,9 +12,51 @@ namespace WindowsFormsApp10
 {
     public partial class MenuGerente : Form
     {
+        
         public MenuGerente()
         {
             InitializeComponent();
         }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            this.Close();
+            login.Show();
+
+        }
+
+        /// 
+        /// Drag controls
+        ///
+        bool mouseDown;
+        private Point mousePos;
+        private void topPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            mousePos.X = e.X;
+            mousePos.Y = e.Y;
+            mouseDown = true;
+        }
+
+        private void topPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown == true)
+            {
+                Point currentScreenPos = PointToScreen(e.Location);
+                Location = new Point(currentScreenPos.X - mousePos.X, currentScreenPos.Y - mousePos.Y);
+            }
+        }
+        private void topPanel_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
+        }
+        /////////////////////////////
+
     }
 }

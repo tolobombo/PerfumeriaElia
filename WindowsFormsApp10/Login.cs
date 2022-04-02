@@ -13,6 +13,7 @@ namespace WindowsFormsApp10
     public partial class Login : Form
     {
         conexion conx  = new conexion();
+        
         public Login()
         {
             InitializeComponent();
@@ -21,8 +22,12 @@ namespace WindowsFormsApp10
         //manda el texto por el metodo a la clase de conexion
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
-            conx.conexionSQL(txtUser.Text, txtPassword.Text);
-            if (conx.conectado) { this.Hide(); }
+            //conx.conexionSQL(txtUser.Text, txtPassword.Text);
+            //if (conx.conectado) { this.Hide(); }
+
+            Empleados empleados = new Empleados();
+            empleados.Show();
+            this.Hide();
         }
 
         private void btnSalir_Click_1(object sender, EventArgs e)
@@ -34,8 +39,9 @@ namespace WindowsFormsApp10
         {
             MessageBox.Show("El Usuario/Contraseña No Es Valido, Intentelo De Nuevo.");
         }
-
         /////////////////////////////////////////////////////////////////
+        
+
         //para poder arrastrar la ventana desde el panel superior
         bool mouseDown;
         private Point mousePos;
@@ -58,12 +64,11 @@ namespace WindowsFormsApp10
         private void panel4_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
-            
         }
-
         ////////////////////////////////////////////////////////////////
+        
+        
         /// Enter para continuar
-
         private void txtPassword_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -76,9 +81,13 @@ namespace WindowsFormsApp10
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MenuGerente gerente = new MenuGerente();
+            gerente.Show();
+            this.Hide();
+        }
         ////////////////////////////////////////////////////////////////
-        ///
-
-
     }
 }
