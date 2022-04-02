@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -54,7 +55,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
-            this.label1.Location = new System.Drawing.Point(92, 133);
+            this.label1.Location = new System.Drawing.Point(88, 133);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(175, 20);
@@ -64,7 +65,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::WindowsFormsApp10.Properties.Resources.user;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 237);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 207);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(41, 33);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -74,7 +75,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = global::WindowsFormsApp10.Properties.Resources.padlock;
-            this.pictureBox2.Location = new System.Drawing.Point(12, 306);
+            this.pictureBox2.Location = new System.Drawing.Point(12, 274);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(41, 38);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -84,7 +85,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = global::WindowsFormsApp10.Properties.Resources._1lotuslogo;
-            this.pictureBox3.Location = new System.Drawing.Point(125, 17);
+            this.pictureBox3.Location = new System.Drawing.Point(121, 17);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(108, 57);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -104,7 +105,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bookman Old Style", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
-            this.label2.Location = new System.Drawing.Point(55, 93);
+            this.label2.Location = new System.Drawing.Point(53, 89);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(244, 28);
@@ -187,7 +188,7 @@
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Bookman Old Style", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
-            this.btnLogin.Location = new System.Drawing.Point(107, 395);
+            this.btnLogin.Location = new System.Drawing.Point(107, 360);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(136, 40);
             this.btnLogin.TabIndex = 18;
@@ -198,8 +199,11 @@
             // mainPanel
             // 
             this.mainPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.mainPanel.Controls.Add(this.btnLogin);
             this.mainPanel.Controls.Add(this.panel2);
+            this.mainPanel.Controls.Add(this.pictureBox2);
             this.mainPanel.Controls.Add(this.txtPassword);
+            this.mainPanel.Controls.Add(this.pictureBox1);
             this.mainPanel.Controls.Add(this.panel1);
             this.mainPanel.Controls.Add(this.txtUser);
             this.mainPanel.Controls.Add(this.label2);
@@ -225,12 +229,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
             this.ClientSize = new System.Drawing.Size(350, 488);
-            this.Controls.Add(this.btnLogin);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.topPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
