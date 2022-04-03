@@ -36,6 +36,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.topPanel = new System.Windows.Forms.Panel();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.txtUser = new System.Windows.Forms.TextBox();
@@ -44,14 +45,13 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.topPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.mainPanel.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -131,6 +131,17 @@
             this.topPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseMove);
             this.topPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel4_MouseUp);
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::WindowsFormsApp10.Properties.Resources._1lotuslogo;
+            this.pictureBox4.Location = new System.Drawing.Point(12, 0);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.pictureBox4.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox4.TabIndex = 22;
+            this.pictureBox4.TabStop = false;
+            // 
             // btnMinimizar
             // 
             this.btnMinimizar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
@@ -165,12 +176,11 @@
             this.txtUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUser.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
-            this.txtUser.Location = new System.Drawing.Point(60, 212);
+            this.txtUser.Location = new System.Drawing.Point(60, 215);
             this.txtUser.Margin = new System.Windows.Forms.Padding(4);
-            this.txtUser.Multiline = true;
             this.txtUser.Name = "txtUser";
-            this.txtUser.Size = new System.Drawing.Size(277, 28);
-            this.txtUser.TabIndex = 16;
+            this.txtUser.Size = new System.Drawing.Size(277, 24);
+            this.txtUser.TabIndex = 0;
             // 
             // txtPassword
             // 
@@ -178,13 +188,12 @@
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPassword.Font = new System.Drawing.Font("Bookman Old Style", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
-            this.txtPassword.Location = new System.Drawing.Point(60, 289);
+            this.txtPassword.Location = new System.Drawing.Point(60, 288);
             this.txtPassword.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPassword.Multiline = true;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(277, 23);
-            this.txtPassword.TabIndex = 17;
+            this.txtPassword.Size = new System.Drawing.Size(277, 24);
+            this.txtPassword.TabIndex = 1;
             this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 
             // btnLogin
@@ -236,17 +245,6 @@
             this.panel2.Size = new System.Drawing.Size(325, 1);
             this.panel2.TabIndex = 12;
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::WindowsFormsApp10.Properties.Resources._1lotuslogo;
-            this.pictureBox4.Location = new System.Drawing.Point(12, 0);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.pictureBox4.Size = new System.Drawing.Size(30, 30);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox4.TabIndex = 22;
-            this.pictureBox4.TabStop = false;
-            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -261,15 +259,16 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.Shown += new System.EventHandler(this.Login_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.topPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.mainPanel.ResumeLayout(false);
             this.mainPanel.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }

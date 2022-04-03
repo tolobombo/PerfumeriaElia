@@ -19,6 +19,9 @@ namespace WindowsFormsApp10
             InitializeComponent();
         }
 
+
+
+        //////////////////////////////////////////////////////////////////
         //manda el texto por el metodo a la clase de conexion
         private void btnLogin_Click_1(object sender, EventArgs e)
         {
@@ -29,19 +32,11 @@ namespace WindowsFormsApp10
             empleados.Show();
             this.Hide();
         }
-
-        private void btnSalir_Click_1(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        public void loginError()
-        {
-            MessageBox.Show("El Usuario/Contraseña No Es Valido, Intentelo De Nuevo.");
-        }
         /////////////////////////////////////////////////////////////////
         
 
+
+        ///////////////////////////////////////////////////////////////
         //para poder arrastrar la ventana desde el panel superior
         bool mouseDown;
         private Point mousePos;
@@ -67,7 +62,9 @@ namespace WindowsFormsApp10
         }
         ////////////////////////////////////////////////////////////////
         
-        
+
+
+        ////////////////////////////////////////////////////////////////
         /// Enter para continuar
         private void txtPassword_KeyDown(object sender, KeyEventArgs e)
         {
@@ -77,16 +74,30 @@ namespace WindowsFormsApp10
                 if (conx.conectado) { this.Hide(); }
             }
         }
+        ///////////////////////////////////////////////////////////////
+
+
+
+
+        ////////////////////////////////////////////////////////////
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnSalir_Click_1(object sender, EventArgs e)
         {
-            MenuGerente gerente = new MenuGerente();
-            gerente.Show();
-            this.Hide();
+            Application.Exit();
+        }
+
+        public void loginError()
+        {
+            MessageBox.Show("El Usuario/Contraseña No Es Valido, Intentelo De Nuevo.");
+        }
+
+        private void Login_Shown(object sender, EventArgs e)
+        {
+            txtUser.Focus();
         }
         ////////////////////////////////////////////////////////////////
     }
