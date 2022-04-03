@@ -28,8 +28,8 @@ namespace WindowsFormsApp10
             //conx.conexionSQL(txtUser.Text, txtPassword.Text);
             //if (conx.conectado) { this.Hide(); }
 
-            Empleados empleados = new Empleados();
-            empleados.Show();
+            Bitacora x = new Bitacora();
+            x.Show();
             this.Hide();
         }
         /////////////////////////////////////////////////////////////////
