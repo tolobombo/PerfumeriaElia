@@ -57,6 +57,5 @@ namespace WindowsFormsApp10
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
     }
 }
