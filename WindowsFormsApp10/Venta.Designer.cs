@@ -191,7 +191,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bookman Old Style", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
-            this.label1.Location = new System.Drawing.Point(296, 33);
+            this.label1.Location = new System.Drawing.Point(302, 33);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(75, 15);
@@ -366,11 +366,11 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = global::WindowsFormsApp10.Properties.Resources._1lotuslogo;
-            this.pictureBox5.Location = new System.Drawing.Point(2, -1);
+            this.pictureBox5.Location = new System.Drawing.Point(2, -3);
             this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.pictureBox5.Size = new System.Drawing.Size(22, 24);
+            this.pictureBox5.Size = new System.Drawing.Size(33, 29);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox5.TabIndex = 25;
             this.pictureBox5.TabStop = false;
