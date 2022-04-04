@@ -31,6 +31,8 @@ namespace WindowsFormsApp10
             Bitacora x = new Bitacora();
             x.Show();
             this.Hide();
+
+
         }
         /////////////////////////////////////////////////////////////////
         
@@ -98,6 +100,11 @@ namespace WindowsFormsApp10
         private void Login_Shown(object sender, EventArgs e)
         {
             txtUser.Focus();
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
         }
         ////////////////////////////////////////////////////////////////
     }
