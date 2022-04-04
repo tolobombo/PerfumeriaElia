@@ -9,31 +9,37 @@ namespace WindowsFormsApp10
 {
     public class conexion
     {
-        public bool conectado = false;
-
-        public void conexionSQL(string usr, string psw)
+        
+        public void conexionSQL()
         {
+            /////      POR EL MOMENTO NO SIRBE PA NA ESTA WEA          /////
+
+            /*
+
             Login login = new Login();
-            Venta venta = new Venta();
+            MenuGerente menuGerente = new MenuGerente();
 
             string pcName = System.Windows.Forms.SystemInformation.ComputerName;
 
+            string connectionString = @"Data Source=" + pcName + @"\SQLEXPRESS;Initial Catalog=demoDB;User ID=localhost;Password=admin";
+
             try
             {
-                string connectionString = @"Data Source="+pcName+@"\SQLEXPRESS;Initial Catalog=demoDB;User ID=" + usr + ";Password=" + psw;
                 SqlConnection cnn = new SqlConnection(connectionString);
 
                 cnn.Open();
 
-                venta.Show();
-                conectado = true;
+                IniciarSesion();
 
                 cnn.Close();
+
             }
             catch (Exception)
             {
                 login.loginError();
             }
-        }
+
+            */
+        }      
     }
 }

@@ -7,37 +7,103 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace WindowsFormsApp10
 {
     public partial class Login : Form
     {
-        conexion conx  = new conexion();
-        
+
         public Login()
         {
             InitializeComponent();
         }
 
-
-
-        //////////////////////////////////////////////////////////////////
-        //manda el texto por el metodo a la clase de conexion
-        private void btnLogin_Click_1(object sender, EventArgs e)
+        ////////////////////////////////////////////////////////////////// INICIAR CONEXION CON BASE DE DATOS
+        public void conexionSQL()
         {
-            //conx.conexionSQL(txtUser.Text, txtPassword.Text);
-            //if (conx.conectado) { this.Hide(); }
+            string pcName = System.Windows.Forms.SystemInformation.ComputerName;
 
-            Bitacora x = new Bitacora();
-            x.Show();
-            this.Hide();
+            string connectionString = @"Data Source=" + pcName + @"\SQLEXPRESS;Initial Catalog=perfumeriaElia;User ID=localhost;Password=admin";
+
+            try
+            {
+                SqlConnection cnn = new SqlConnection(connectionString);
+
+                cnn.Open();
+                
+                VerificarUsuario(connectionString);
+
+                cnn.Close();
+
+            }
+            catch (Exception)
+            {
+                loginError();
+            }
         }
-        /////////////////////////////////////////////////////////////////
+
+        public void VerificarUsuario(string connectionString)
+        {
+            MenuGerente menuGerente = new MenuGerente();
+            Venta venta = new Venta();
+
+            SqlConnection cnn = new SqlConnection(connectionString);
+            cnn.Open();
+            SqlCommand cmd;
+            SqlDataReader sqlDataReader;
+            string sql;
+
+            sql = "select nombreUsuario,contraUsuario from perfumeriaElia";
+
+            //cnn = new SqlCommand(sql,cnn);
+
+
+
+
+
+            if (txtUser.Text=="juan21" && txtPassword.Text=="12345")
+            {
+                venta.Show();
+                this.Hide();
+            }
+            else if (txtUser.Text == "martin22" && txtPassword.Text == "root")
+            {
+                menuGerente.Show();
+                this.Hide();
+            }
+        }
+        //////////////////////////////////////////////////////////////////
         
 
 
-        ///////////////////////////////////////////////////////////////
-        //para poder arrastrar la ventana desde el panel superior
+
+        //////////////////////////////////////////////////////////////////
+        public void btnLogin_Click_1(object sender, EventArgs e)
+        {
+            conexionSQL();
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Login_Shown(object sender, EventArgs e)
+        {
+            txtUser.Focus();
+        }
+
+        public void loginError()
+        {
+            MessageBox.Show("El Usuario/Contraseña No Es Valido, Intentelo De Nuevo.");
+        }
+        /////////////////////////////////////////////////////////////////
+
+
+
+
+        /////////////////////////////////////////////////////////////// ARRASTRAR VENTANA
         bool mouseDown;
         private Point mousePos;
         private void panel4_MouseDown(object sender, MouseEventArgs e)
@@ -49,7 +115,7 @@ namespace WindowsFormsApp10
 
         private void panel4_MouseMove(object sender, MouseEventArgs e)
         {
-            if (mouseDown == true)
+            if (mouseDown)
             {
                 Point currentScreenPos = PointToScreen(e.Location);
                 Location = new Point(currentScreenPos.X - mousePos.X, currentScreenPos.Y - mousePos.Y);
@@ -61,25 +127,11 @@ namespace WindowsFormsApp10
             mouseDown = false;
         }
         ////////////////////////////////////////////////////////////////
-        
-
-
-        ////////////////////////////////////////////////////////////////
-        /// Enter para continuar
-        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                conx.conexionSQL(txtUser.Text, txtPassword.Text);
-                if (conx.conectado) { this.Hide(); }
-            }
-        }
-        ///////////////////////////////////////////////////////////////
 
 
 
 
-        ////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////// BOTONES PA MINIMIZAR, CERRAR/SALIR, Y CONTINUAR CON ENTER
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -90,14 +142,12 @@ namespace WindowsFormsApp10
             Application.Exit();
         }
 
-        public void loginError()
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
         {
-            MessageBox.Show("El Usuario/Contraseña No Es Valido, Intentelo De Nuevo.");
-        }
-
-        private void Login_Shown(object sender, EventArgs e)
-        {
-            txtUser.Focus();
+            if (e.KeyCode == Keys.Enter)
+            {
+                conexionSQL();
+            }
         }
         ////////////////////////////////////////////////////////////////
     }
