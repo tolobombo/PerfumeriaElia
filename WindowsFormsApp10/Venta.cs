@@ -43,7 +43,7 @@ namespace WindowsFormsApp10
                 Location = new Point(currentScreenPos.X - mousePos.X, currentScreenPos.Y - mousePos.Y);
             }
         }
-        //-----------------------------------------------------------------------------------------------
+
         private void topPanel_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;

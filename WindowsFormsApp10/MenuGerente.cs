@@ -18,6 +18,47 @@ namespace WindowsFormsApp10
             InitializeComponent();
         }
 
+        //////////////////////////////////////////////////////////////// ABRIR FORMULARIOS CON BOTONES
+        private void btnBit_Click(object sender, EventArgs e)
+        {
+            Bitacora bit = new Bitacora(); 
+            bit.Show();
+            this.Close();
+        }
+
+        private void btnInv_Click(object sender, EventArgs e)
+        {
+            Inventario inv = new Inventario();
+            inv.Show();
+            this.Close();
+        }
+
+        private void btnEmp_Click(object sender, EventArgs e)
+        {
+            Empleados emp = new Empleados();
+            emp.Show();
+            this.Close();
+        }
+
+        private void btnVen_Click(object sender, EventArgs e)
+        {
+            Venta ven = new Venta();
+            ven.Show();
+            this.Close();
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Close();
+        }
+        ///////////////////////////////////////////////////////////////
+
+
+
+
+        /////////////////////////////////////////////////////////////// MINIMIZAR Y CERRAR  VENTANA
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -29,10 +70,12 @@ namespace WindowsFormsApp10
             Application.Exit();
 
         }
+        ///////////////////////////////////////////////////////////////
 
-        /// 
-        /// Drag controls
-        ///
+
+
+
+        /////////////////////////////////////////////////////////////// ARRASTRAR VENTANA
         bool mouseDown;
         private Point mousePos;
         private void topPanel_MouseDown(object sender, MouseEventArgs e)
@@ -54,14 +97,6 @@ namespace WindowsFormsApp10
         {
             mouseDown = false;
         }
-
-        Login login = new Login();  
-        private void btnRegresar_Click(object sender, EventArgs e)
-        {
-            login.Show();
-            this.Close();
-        }
-        /////////////////////////////
-
+        ////////////////////////////////////////////////////////////////
     }
 }

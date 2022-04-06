@@ -30,10 +30,10 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnInv = new System.Windows.Forms.Button();
+            this.btnEmp = new System.Windows.Forms.Button();
+            this.btnVen = new System.Windows.Forms.Button();
+            this.btnBit = new System.Windows.Forms.Button();
             this.topPanel = new System.Windows.Forms.Panel();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.Button();
@@ -69,57 +69,61 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "¿A dondé desea acceder?";
             // 
-            // button1
+            // btnInv
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
-            this.button1.Location = new System.Drawing.Point(96, 126);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(159, 57);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Inventario";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnInv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInv.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
+            this.btnInv.Location = new System.Drawing.Point(96, 191);
+            this.btnInv.Margin = new System.Windows.Forms.Padding(4);
+            this.btnInv.Name = "btnInv";
+            this.btnInv.Size = new System.Drawing.Size(159, 57);
+            this.btnInv.TabIndex = 2;
+            this.btnInv.Text = "Inventario";
+            this.btnInv.UseVisualStyleBackColor = true;
+            this.btnInv.Click += new System.EventHandler(this.btnInv_Click);
             // 
-            // button2
+            // btnEmp
             // 
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
-            this.button2.Location = new System.Drawing.Point(96, 196);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(159, 57);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Empleados";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnEmp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmp.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
+            this.btnEmp.Location = new System.Drawing.Point(96, 256);
+            this.btnEmp.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEmp.Name = "btnEmp";
+            this.btnEmp.Size = new System.Drawing.Size(159, 57);
+            this.btnEmp.TabIndex = 3;
+            this.btnEmp.Text = "Empleados";
+            this.btnEmp.UseVisualStyleBackColor = true;
+            this.btnEmp.Click += new System.EventHandler(this.btnEmp_Click);
             // 
-            // button3
+            // btnVen
             // 
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
-            this.button3.Location = new System.Drawing.Point(96, 266);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(159, 57);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Venta";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnVen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnVen.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
+            this.btnVen.Location = new System.Drawing.Point(96, 321);
+            this.btnVen.Margin = new System.Windows.Forms.Padding(4);
+            this.btnVen.Name = "btnVen";
+            this.btnVen.Size = new System.Drawing.Size(159, 57);
+            this.btnVen.TabIndex = 4;
+            this.btnVen.Text = "Venta";
+            this.btnVen.UseVisualStyleBackColor = true;
+            this.btnVen.Click += new System.EventHandler(this.btnVen_Click);
             // 
-            // button4
+            // btnBit
             // 
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
-            this.button4.Location = new System.Drawing.Point(96, 334);
-            this.button4.Margin = new System.Windows.Forms.Padding(4);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(159, 57);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Bitacora";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnBit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBit.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
+            this.btnBit.Location = new System.Drawing.Point(96, 126);
+            this.btnBit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBit.Name = "btnBit";
+            this.btnBit.Size = new System.Drawing.Size(159, 57);
+            this.btnBit.TabIndex = 5;
+            this.btnBit.Text = "Bitacora";
+            this.btnBit.UseVisualStyleBackColor = true;
+            this.btnBit.Click += new System.EventHandler(this.btnBit_Click);
             // 
             // topPanel
             // 
@@ -182,12 +186,12 @@
             // mainPanel
             // 
             this.mainPanel.Controls.Add(this.btnRegresar);
-            this.mainPanel.Controls.Add(this.button1);
-            this.mainPanel.Controls.Add(this.button2);
+            this.mainPanel.Controls.Add(this.btnInv);
+            this.mainPanel.Controls.Add(this.btnEmp);
             this.mainPanel.Controls.Add(this.label1);
             this.mainPanel.Controls.Add(this.label2);
-            this.mainPanel.Controls.Add(this.button4);
-            this.mainPanel.Controls.Add(this.button3);
+            this.mainPanel.Controls.Add(this.btnBit);
+            this.mainPanel.Controls.Add(this.btnVen);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 30);
             this.mainPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -200,7 +204,7 @@
             this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegresar.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
-            this.btnRegresar.Location = new System.Drawing.Point(119, 398);
+            this.btnRegresar.Location = new System.Drawing.Point(122, 398);
             this.btnRegresar.Margin = new System.Windows.Forms.Padding(4);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(113, 46);
@@ -234,10 +238,10 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnInv;
+        private System.Windows.Forms.Button btnEmp;
+        private System.Windows.Forms.Button btnVen;
+        private System.Windows.Forms.Button btnBit;
         private System.Windows.Forms.Panel topPanel;
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnSalir;

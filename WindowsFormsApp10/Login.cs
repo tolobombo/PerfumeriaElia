@@ -20,6 +20,7 @@ namespace WindowsFormsApp10
         }
 
         ////////////////////////////////////////////////////////////////// INICIAR CONEXION CON BASE DE DATOS
+        
         public void conexionSQL()
         {
             MenuGerente menuGerente = new MenuGerente();
@@ -85,6 +86,13 @@ namespace WindowsFormsApp10
         public void btnLogin_Click_1(object sender, EventArgs e)
         {
             conexionSQL();
+
+            /*
+            MenuGerente mg = new MenuGerente();
+            mg.Show();
+
+            this.Hide();
+            */
         }
 
         private void Login_Load(object sender, EventArgs e)

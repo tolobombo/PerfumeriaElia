@@ -47,9 +47,6 @@ namespace WindowsFormsApp10
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            /*MenuGerente gerente = new MenuGerente();
-            gerente.Show();
-            this.Hide();*/
             Application.Exit();
         }
 
@@ -61,6 +58,13 @@ namespace WindowsFormsApp10
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            MenuGerente mg = new MenuGerente();
+            mg.Show();
+            this.Close();
         }
     }
 }
