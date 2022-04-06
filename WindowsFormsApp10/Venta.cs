@@ -24,69 +24,40 @@ namespace WindowsFormsApp10
             this.Close();
         }
 
-        private void Venta_Load(object sender, EventArgs e)
-        {
 
+        /////////////////////////////////////////////////////////////////
+        bool mouseDown;
+        private Point mousePos;
+        private void topPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            mousePos.X = e.X;
+            mousePos.Y = e.Y;
+            mouseDown = true;
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void topPanel_MouseMove(object sender, MouseEventArgs e)
         {
-
+            if (mouseDown == true)
+            {
+                Point currentScreenPos = PointToScreen(e.Location);
+                Location = new Point(currentScreenPos.X - mousePos.X, currentScreenPos.Y - mousePos.Y);
+            }
+        }
+        //-----------------------------------------------------------------------------------------------
+        private void topPanel_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnMinimizar_Click(object sender, EventArgs e)
         {
-
+            this.WindowState = FormWindowState.Minimized;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnSalir_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+        /////////////////////////////////////////////////////////////////
     }
 }

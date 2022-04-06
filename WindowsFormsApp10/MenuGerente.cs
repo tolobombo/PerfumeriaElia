@@ -26,9 +26,7 @@ namespace WindowsFormsApp10
         
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            Login login = new Login();
-            this.Close();
-            login.Show();
+            Application.Exit();
 
         }
 
@@ -57,14 +55,11 @@ namespace WindowsFormsApp10
             mouseDown = false;
         }
 
-        private void mainPanel_Paint(object sender, PaintEventArgs e)
+        Login login = new Login();  
+        private void btnRegresar_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
+            login.Show();
+            this.Close();
         }
         /////////////////////////////
 

@@ -22,6 +22,9 @@ namespace WindowsFormsApp10
         ////////////////////////////////////////////////////////////////// INICIAR CONEXION CON BASE DE DATOS
         public void conexionSQL()
         {
+            MenuGerente menuGerente = new MenuGerente();
+            Venta venta = new Venta();
+
             string pcName = System.Windows.Forms.SystemInformation.ComputerName;
 
             string connectionString = @"Data Source=" + pcName + @"\SQLEXPRESS;Initial Catalog=perfumeriaElia;User ID=localhost;Password=admin";
@@ -31,50 +34,50 @@ namespace WindowsFormsApp10
                 SqlConnection cnn = new SqlConnection(connectionString);
 
                 cnn.Open();
-                
-                VerificarUsuario(connectionString);
+
+                SqlCommand cmd;
+                SqlDataReader sqlDataReader;
+                String sql;
+
+                sql = "Select nombreUsuario,contraUsuario,tipoUsuario from empleados";   ///// AGARRA USUARIO CONTRA Y ROL DE LA TABLA DE EMPLEADOS
+
+                cmd = new SqlCommand(sql, cnn);
+
+                sqlDataReader = cmd.ExecuteReader();
+
+
+                //// LO COMPARA CON LO INGRESADO EN LOS TEXTBOX Y SI COINCIDEN SE VUELVE A COMPARAR PARA DETERMINAR EL ROL
+                while (sqlDataReader.Read())
+                {
+                    if (txtUser.Text == sqlDataReader.GetValue(0).ToString() && txtPassword.Text == sqlDataReader.GetValue(1).ToString())
+                    {
+                        if (sqlDataReader.GetValue(2).ToString()=="admin")
+                        {
+                            menuGerente.Show();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            venta.Show();
+                            this.Hide();
+                        }
+                    }
+                    else
+                    {
+                        //loginError();
+                    }
+                }
 
                 cnn.Close();
 
             }
             catch (Exception)
             {
-                loginError();
-            }
-        }
-
-        public void VerificarUsuario(string connectionString)
-        {
-            MenuGerente menuGerente = new MenuGerente();
-            Venta venta = new Venta();
-
-            SqlConnection cnn = new SqlConnection(connectionString);
-            cnn.Open();
-            SqlCommand cmd;
-            SqlDataReader sqlDataReader;
-            string sql;
-
-            sql = "select nombreUsuario,contraUsuario from perfumeriaElia";
-
-            //cnn = new SqlCommand(sql,cnn);
-
-
-
-
-
-            if (txtUser.Text=="juan21" && txtPassword.Text=="12345")
-            {
-                venta.Show();
-                this.Hide();
-            }
-            else if (txtUser.Text == "martin22" && txtPassword.Text == "root")
-            {
-                menuGerente.Show();
-                this.Hide();
+                
             }
         }
         //////////////////////////////////////////////////////////////////
-        
+
 
 
 
