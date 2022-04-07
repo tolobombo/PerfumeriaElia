@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp10
 {
-    public partial class Productos : Form
+    public partial class Inventario : Form
     {
-        public Productos()
+        public Inventario()
         {
             InitializeComponent();
             

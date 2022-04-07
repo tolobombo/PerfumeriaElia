@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp10
 {
-    partial class Productos
+    partial class Inventario
     {
         /// <summary>
         /// Variable del diseñador necesaria.
