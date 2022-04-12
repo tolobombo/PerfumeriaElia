@@ -17,15 +17,8 @@ namespace WindowsFormsApp10
             InitializeComponent();
         }
 
-        Login login = new Login();
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            login.Show();
-            this.Close();
-        }
 
-
-        /////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////// ARRASTRAR VENTANA
         bool mouseDown;
         private Point mousePos;
         private void topPanel_MouseDown(object sender, MouseEventArgs e)
@@ -47,6 +40,18 @@ namespace WindowsFormsApp10
         private void topPanel_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
+        }
+        /////////////////////////////////////////////////////////////////
+
+
+
+
+        ///////////////////////////////////////////////////////////////// REGRESAR, MINIMIZAR Y SALIR
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Close();
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
