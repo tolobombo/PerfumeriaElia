@@ -69,6 +69,8 @@ namespace WindowsFormsApp10
                     }
                 }
 
+                sqlDataReader.Close();
+                cmd.Dispose();
                 cnn.Close();
 
             }
