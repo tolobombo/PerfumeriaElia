@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrearAbrirConexion.cs" />
     <Compile Include="MenuGerente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +138,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\1lotuslogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoBoss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoChanel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoCk.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoPaco.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp10
 {
+    
     public partial class Venta : Form
     {
+        AbrirCerrarConexion Conexion = new AbrirCerrarConexion();
         public Venta()
         {
             InitializeComponent();
+            Conexion.CrearAbrir();
+
+            
         }
 
 
@@ -52,6 +57,8 @@ namespace WindowsFormsApp10
             Login login = new Login();
             login.Show();
             this.Close();
+            Conexion.Cerrar();
+            
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -62,6 +69,21 @@ namespace WindowsFormsApp10
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void mainPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
         /////////////////////////////////////////////////////////////////
     }
