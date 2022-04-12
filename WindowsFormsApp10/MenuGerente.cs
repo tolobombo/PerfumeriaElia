@@ -47,31 +47,8 @@ namespace WindowsFormsApp10
             this.Close();
         }
 
-        private void btnRegresar_Click(object sender, EventArgs e)
-        {
-            Login login = new Login();
-            login.Show();
-            this.Close();
-        }
         ///////////////////////////////////////////////////////////////
-
-
-
-
-        /////////////////////////////////////////////////////////////// MINIMIZAR Y CERRAR  VENTANA
-        private void btnMinimizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
         
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-
-        }
-        ///////////////////////////////////////////////////////////////
-
 
 
 
@@ -98,5 +75,29 @@ namespace WindowsFormsApp10
             mouseDown = false;
         }
         ////////////////////////////////////////////////////////////////
+
+
+
+
+        /////////////////////////////////////////////////////////////// REGRESAR, MINIMIZAR Y CERRAR VENTANA
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Close();
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+
+        }
+        ///////////////////////////////////////////////////////////////
     }
 }

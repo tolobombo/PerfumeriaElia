@@ -17,9 +17,66 @@ namespace WindowsFormsApp10
             InitializeComponent();
         }
 
+        ///////////////////////////////////////////////////////////////
+        
         private void button5_Click(object sender, EventArgs e)
         {
 
         }
+
+        ///////////////////////////////////////////////////////////////
+
+
+
+
+        /////////////////////////////////////////////////////////////// REGRESAR, MINIMIZAR Y CERRAR VENTANA
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            MenuGerente mg = new MenuGerente();
+            mg.Show();
+            
+            this.Close();
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        ///////////////////////////////////////////////////////////////
+
+
+
+        ///////////////////////////////////////////////////////////////
+        bool mouseDown;
+        private Point mousePos;
+        private void topPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            mousePos.X = e.X;
+            mousePos.Y = e.Y;
+            mouseDown = true;
+        }
+
+        private void topPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                Point currentScreenPos = PointToScreen(e.Location);
+                Location = new Point(currentScreenPos.X - mousePos.X, currentScreenPos.Y - mousePos.Y);
+            }
+        }
+
+        private void topPanel_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
+        }
+
+        ///////////////////////////////////////////////////////////////
+
     }
 }

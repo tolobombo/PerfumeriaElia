@@ -47,7 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="conexion.cs" />
     <Compile Include="MenuGerente.cs">
       <SubType>Form</SubType>
     </Compile>
