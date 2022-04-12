@@ -7,13 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace WindowsFormsApp10
 {
     
     public partial class Venta : Form
     {
+        
         AbrirCerrarConexion Conexion = new AbrirCerrarConexion();
+        public string x;
         public Venta()
         {
             InitializeComponent();
@@ -78,13 +81,47 @@ namespace WindowsFormsApp10
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
+            LlenadoNombre();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
-        /////////////////////////////////////////////////////////////////
+        //Metodos 
+
+        private void LlenadoNombre() 
+        {
+            SqlCommand comandoNombre = new SqlCommand();
+            DataTable table = new DataTable();
+
+            comandoNombre.Connection = Conexion.GetConexion();
+
+            comandoNombre.CommandType = CommandType.Text;
+
+            comandoNombre.CommandText = "select * from inventario";
+
+            SqlDataAdapter data = new SqlDataAdapter(comandoNombre);
+            data.Fill(table);
+
+          
+           
+            //Llenar combobox
+
+            comboBox1.DataSource = table;
+
+            comboBox1.DisplayMember = "inventario";
+
+            comboBox1.ValueMember = "nombreProducto";
+        }
+
+       
+
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            
+            dataGridView1.Rows.Add(comboBox1.Text); ;
+        }
     }
 }

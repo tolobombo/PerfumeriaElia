@@ -1,24 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
-using System.Data;
+﻿using System.Data.SqlClient;
 
 
 namespace WindowsFormsApp10
 {
-    sealed class AbrirCerrarConexion
+    sealed class AbrirCerrarConexion // Esta clase la puedes usar en cualquier parte para crear, abrir y/o cerrar en cualquier lugar
     {
         static string pcName = System.Windows.Forms.SystemInformation.ComputerName;
-
         static string connectionString = @"Data Source=" + pcName + @"\SQLEXPRESS;Initial Catalog=perfumeriaElia;User ID=localhost;Password=admin";
-        static string direccion = "Data Source=Localhost;Initial Catalog=bd1; Integrated Security=true";
+        static string direccion = "Data Source=Localhost;Initial Catalog=PerfumeriaElia; Integrated Security=true";
         SqlConnection conexionSqlConnection = new SqlConnection(direccion);
-        public void CrearAbrir() 
+
+        // En esta parte tiene que ser estaticos los campos por la privacidad de la clase
+        public void CrearAbrir()
         {
-           
+
 
             conexionSqlConnection.Open();
 
@@ -29,8 +24,15 @@ namespace WindowsFormsApp10
 
         public void Cerrar()
         {
-         conexionSqlConnection.Close();
+            conexionSqlConnection.Close();
+
             System.Windows.Forms.MessageBox.Show("Cerrada");
+        }
+
+        public SqlConnection GetConexion() 
+        {
+            return conexionSqlConnection;
+            
         }
     }
 }
