@@ -22,6 +22,28 @@ namespace WindowsFormsApp10
 
         }
 
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            MenuGerente mg = new MenuGerente();
+            mg.Show();
+            this.Close();
+        }
+        ////////////////////////////////////////////////////////////////////
+
+
+
+        //////////////////////////////////////////////////////////////////// ARRASTRAR VENTANA
         bool mouseDown;
         private Point mousePos;
         private void topPanel_MouseDown(object sender, MouseEventArgs e)
@@ -44,27 +66,6 @@ namespace WindowsFormsApp10
         {
             mouseDown = false;
         }
-
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void btnMinimizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void btnRegresar_Click(object sender, EventArgs e)
-        {
-            MenuGerente mg = new MenuGerente();
-            mg.Show();
-            this.Close();
-        }
+        ////////////////////////////////////////////////////////////////////
     }
 }

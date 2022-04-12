@@ -18,39 +18,51 @@ namespace WindowsFormsApp10
             
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        //////////////////////////////////////////////////////////////////// BOTONES DE VENTANA
+        private void btnSalir_Click(object sender, EventArgs e)
         {
-
+            Application.Exit();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnMinimizar_Click(object sender, EventArgs e)
         {
-
+            this.WindowState = FormWindowState.Minimized;
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void btnRegresarEmp_Click(object sender, EventArgs e)
         {
+            MenuGerente mg = new MenuGerente();
+            mg.Show();
+            this.Close();
+        }
+        ////////////////////////////////////////////////////////////////////
+        
 
+
+
+        //////////////////////////////////////////////////////////////////// ARRASTRAR VENTANA
+        bool mouseDown;
+        private Point mousePos;
+        private void topPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            mousePos.X = e.X;
+            mousePos.Y = e.Y;
+            mouseDown = true;
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void topPanel_MouseMove(object sender, MouseEventArgs e)
         {
-
+            if (mouseDown == true)
+            {
+                Point currentScreenPos = PointToScreen(e.Location);
+                Location = new Point(currentScreenPos.X - mousePos.X, currentScreenPos.Y - mousePos.Y);
+            }
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
+        private void topPanel_MouseUp(object sender, MouseEventArgs e)
         {
-
+            mouseDown = false;
         }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
+        ////////////////////////////////////////////////////////////////////
     }
 }

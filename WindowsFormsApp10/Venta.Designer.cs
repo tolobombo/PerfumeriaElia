@@ -151,7 +151,7 @@
             this.comboBox1.Location = new System.Drawing.Point(194, 193);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(300, 27);
+            this.comboBox1.Size = new System.Drawing.Size(300, 23);
             this.comboBox1.TabIndex = 5;
             // 
             // comboBox2
@@ -160,7 +160,7 @@
             this.comboBox2.Location = new System.Drawing.Point(731, 93);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(140, 27);
+            this.comboBox2.Size = new System.Drawing.Size(140, 23);
             this.comboBox2.TabIndex = 6;
             // 
             // textBox1
@@ -168,7 +168,7 @@
             this.textBox1.Location = new System.Drawing.Point(781, 216);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(116, 24);
+            this.textBox1.Size = new System.Drawing.Size(116, 20);
             this.textBox1.TabIndex = 7;
             // 
             // textBox2
@@ -176,7 +176,7 @@
             this.textBox2.Location = new System.Drawing.Point(781, 313);
             this.textBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(116, 24);
+            this.textBox2.Size = new System.Drawing.Size(116, 20);
             this.textBox2.TabIndex = 8;
             // 
             // textBox3
@@ -184,7 +184,7 @@
             this.textBox3.Location = new System.Drawing.Point(781, 461);
             this.textBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(116, 24);
+            this.textBox3.Size = new System.Drawing.Size(116, 20);
             this.textBox3.TabIndex = 9;
             // 
             // label1
@@ -195,7 +195,7 @@
             this.label1.Location = new System.Drawing.Point(302, 33);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 16);
+            this.label1.Size = new System.Drawing.Size(77, 14);
             this.label1.TabIndex = 10;
             this.label1.Text = "Marcas TOP";
             // 
@@ -207,7 +207,7 @@
             this.label2.Location = new System.Drawing.Point(781, 65);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 19);
+            this.label2.Size = new System.Drawing.Size(37, 15);
             this.label2.TabIndex = 11;
             this.label2.Text = "Otros";
             // 
@@ -219,7 +219,7 @@
             this.label3.Location = new System.Drawing.Point(296, 169);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 16);
+            this.label3.Size = new System.Drawing.Size(66, 14);
             this.label3.TabIndex = 12;
             this.label3.Text = "Productos";
             // 
@@ -231,7 +231,7 @@
             this.label4.Location = new System.Drawing.Point(818, 170);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 16);
+            this.label4.Size = new System.Drawing.Size(38, 14);
             this.label4.TabIndex = 13;
             this.label4.Text = "Total";
             // 
@@ -243,7 +243,7 @@
             this.label5.Location = new System.Drawing.Point(812, 266);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 16);
+            this.label5.Size = new System.Drawing.Size(53, 14);
             this.label5.TabIndex = 14;
             this.label5.Text = "Su pago";
             // 
@@ -268,7 +268,7 @@
             this.label6.Location = new System.Drawing.Point(806, 429);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(81, 16);
+            this.label6.Size = new System.Drawing.Size(70, 14);
             this.label6.TabIndex = 16;
             this.label6.Text = "Su Cambio";
             // 
@@ -290,7 +290,7 @@
             this.textBox4.Location = new System.Drawing.Point(616, 277);
             this.textBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(135, 24);
+            this.textBox4.Size = new System.Drawing.Size(135, 20);
             this.textBox4.TabIndex = 18;
             // 
             // label7
@@ -301,7 +301,7 @@
             this.label7.Location = new System.Drawing.Point(652, 239);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 16);
+            this.label7.Size = new System.Drawing.Size(59, 14);
             this.label7.TabIndex = 19;
             this.label7.Text = "Cantidad";
             // 
@@ -377,7 +377,7 @@
             this.label8.Location = new System.Drawing.Point(49, 4);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(95, 24);
+            this.label8.Size = new System.Drawing.Size(79, 19);
             this.label8.TabIndex = 5;
             this.label8.Text = "VENTAS";
             // 
@@ -411,7 +411,7 @@
             // 
             // Venta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
             this.ClientSize = new System.Drawing.Size(903, 519);
