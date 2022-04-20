@@ -46,7 +46,7 @@ namespace WindowsFormsApp10
             //Verificar que todos los campos tengan informacion y si el correo es valido para poder agregar los datos a la tabla.
             if (cmbTipo.SelectedIndex == 0 || cmbTipo.SelectedIndex == 1)
             {
-                if (txtID.Text != "" && txtNombre.Text != "" && txtApellido1.Text != "" && txtApellido2.Text != "" && txtCorreo.Text != "")
+                if (txtID.Text != "" && txtNombre.Text != "" && txtApellido1.Text != "" && txtApellido2.Text != "" && txtCorreo.Text != "" && correoValido)
                 {
                     dgvEmpleados.Rows.Add(txtID.Text,nombreCompleto,txtCorreo.Text,cmbTipo.SelectedItem.ToString());
 
