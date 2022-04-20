@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace WindowsFormsApp10
 {
@@ -17,12 +18,54 @@ namespace WindowsFormsApp10
             InitializeComponent();
         }
 
-        private void Form2_Load(object sender, EventArgs e)
-        {
 
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            bool correoValido = false;
+            string nombreCompleto = txtNombre.Text+" "+txtApellido1.Text+" "+txtApellido2.Text;
+
+            //Verificar que se llenen todos los campos.
+            if (txtID.Text.Equals("") || txtNombre.Text.Equals("") || txtApellido1.Text.Equals("") || txtApellido2.Text.Equals("") || txtCorreo.Text.Equals("") || cmbTipo.SelectedIndex == -1)
+            {
+                MessageBox.Show("Favor de llenar todos los campos.");
+            }
+
+            //Validar Correo
+            if (txtCorreo.Text!="")
+            {
+                if (CorreoValido(txtCorreo.Text) == false)
+                {
+                    MessageBox.Show("Correo Invalido");
+                }
+                else if(CorreoValido(txtCorreo.Text))
+                {
+                    correoValido = true;
+                }
+            }
+
+            //Verificar que todos los campos tengan informacion y si el correo es valido para poder agregar los datos a la tabla.
+            if (cmbTipo.SelectedIndex == 0 || cmbTipo.SelectedIndex == 1)
+            {
+                if (txtID.Text != "" && txtNombre.Text != "" && txtApellido1.Text != "" && txtApellido2.Text != "" && txtCorreo.Text != "")
+                {
+                    dgvEmpleados.Rows.Add(txtID.Text,nombreCompleto,txtCorreo.Text,cmbTipo.SelectedItem.ToString());
+
+                    txtID.Text = "";
+                    txtNombre.Text = "";
+                    txtApellido1.Text = "";
+                    txtApellido2.Text = "";
+                    txtCorreo.Text = "";
+                }
+            }
+        }
+        public static bool CorreoValido(string correo)
+        {
+            Regex correoRegex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$",RegexOptions.IgnoreCase);
+
+            return correoRegex.IsMatch(correo);
         }
 
-
+        //////////////////////////////////////////////////////////////////// BOTONES SALIR, MINIMIZAR Y REGRESAR.
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit();
