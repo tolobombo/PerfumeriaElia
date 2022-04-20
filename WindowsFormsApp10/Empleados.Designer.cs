@@ -301,7 +301,25 @@
             this.txtApellido2.Size = new System.Drawing.Size(127, 20);
             this.txtApellido2.TabIndex = 14;
             // 
-            // label5
+            // txtApellido1
+            // 
+            this.txtApellido1.Location = new System.Drawing.Point(551, 76);
+            this.txtApellido1.Name = "txtApellido1";
+            this.txtApellido1.Size = new System.Drawing.Size(128, 20);
+            this.txtApellido1.TabIndex = 10;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
+            this.label3.Location = new System.Drawing.Point(606, 6);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(75, 14);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Nombre(s):";
+            // 
+            // txtNombre
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
