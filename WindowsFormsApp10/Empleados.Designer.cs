@@ -58,11 +58,11 @@
             this.txtID = new System.Windows.Forms.TextBox();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtContra = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtContra2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -235,11 +235,11 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.textBox3);
+            this.panel1.Controls.Add(this.txtContra2);
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.textBox2);
+            this.panel1.Controls.Add(this.txtContra);
             this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.txtUsuario);
             this.panel1.Controls.Add(this.cmbTipo);
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.txtCorreo);
@@ -404,12 +404,12 @@
             this.label8.TabIndex = 20;
             this.label8.Text = "Usuario:";
             // 
-            // textBox1
+            // txtUsuario
             // 
-            this.textBox1.Location = new System.Drawing.Point(551, 183);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(189, 20);
-            this.textBox1.TabIndex = 17;
+            this.txtUsuario.Location = new System.Drawing.Point(551, 183);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(189, 20);
+            this.txtUsuario.TabIndex = 17;
             // 
             // label9
             // 
@@ -422,12 +422,12 @@
             this.label9.TabIndex = 22;
             this.label9.Text = "Contraseña:";
             // 
-            // textBox2
+            // txtContra
             // 
-            this.textBox2.Location = new System.Drawing.Point(551, 232);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(189, 20);
-            this.textBox2.TabIndex = 18;
+            this.txtContra.Location = new System.Drawing.Point(551, 232);
+            this.txtContra.Name = "txtContra";
+            this.txtContra.Size = new System.Drawing.Size(189, 20);
+            this.txtContra.TabIndex = 18;
             // 
             // label10
             // 
@@ -440,12 +440,12 @@
             this.label10.TabIndex = 24;
             this.label10.Text = "Confirmar Contraseña:";
             // 
-            // textBox3
+            // txtContra2
             // 
-            this.textBox3.Location = new System.Drawing.Point(551, 281);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(189, 20);
-            this.textBox3.TabIndex = 19;
+            this.txtContra2.Location = new System.Drawing.Point(551, 281);
+            this.txtContra2.Name = "txtContra2";
+            this.txtContra2.Size = new System.Drawing.Size(189, 20);
+            this.txtContra2.TabIndex = 19;
             // 
             // Empleados
             // 
@@ -501,10 +501,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Correo;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoUsuario;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtContra2;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtContra;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtUsuario;
     }
 }

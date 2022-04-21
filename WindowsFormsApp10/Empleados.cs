@@ -22,10 +22,11 @@ namespace WindowsFormsApp10
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             bool correoValido = false;
+            bool contraCoincide = false;
             string nombreCompleto = txtNombre.Text+" "+txtApellido1.Text+" "+txtApellido2.Text;
 
             //Verificar que se llenen todos los campos.
-            if (txtID.Text.Equals("") || txtNombre.Text.Equals("") || txtApellido1.Text.Equals("") || txtApellido2.Text.Equals("") || txtCorreo.Text.Equals("") || cmbTipo.SelectedIndex == -1)
+            if (txtID.Text.Equals("") || txtNombre.Text.Equals("") || txtApellido1.Text.Equals("") || txtApellido2.Text.Equals("") || txtCorreo.Text.Equals("") || txtUsuario.Text.Equals("") || txtContra.Text.Equals("") || txtContra2.Text.Equals("") || cmbTipo.SelectedIndex == -1)
             {
                 MessageBox.Show("Favor de llenar todos los campos.");
             }
@@ -43,18 +44,39 @@ namespace WindowsFormsApp10
                 }
             }
 
+            //Validar Contraseñas
+            if (txtContra.Text != "" && txtContra2.Text != "")
+            {
+                if (txtContra.Text != txtContra2.Text)
+                {
+                    MessageBox.Show("Las contraseñas ingresadas no coinciden, intentelo de nuevo.");
+                }
+                else if (txtContra.Text == txtContra2.Text)
+                {
+                    contraCoincide = true;
+                }
+            }
+
             //Verificar que todos los campos tengan informacion y si el correo es valido para poder agregar los datos a la tabla.
             if (cmbTipo.SelectedIndex == 0 || cmbTipo.SelectedIndex == 1)
             {
-                if (txtID.Text != "" && txtNombre.Text != "" && txtApellido1.Text != "" && txtApellido2.Text != "" && txtCorreo.Text != "" && correoValido)
+                if (txtID.Text != "" && txtNombre.Text != "" && txtApellido1.Text != "" && txtApellido2.Text != "" && txtCorreo.Text != "" && correoValido && txtUsuario.Text != "" && txtContra.Text != "" && txtContra2.Text != "" && contraCoincide)
                 {
+
                     dgvEmpleados.Rows.Add(txtID.Text,nombreCompleto,txtCorreo.Text,cmbTipo.SelectedItem.ToString());
 
+
+
+                    //Limpiar casillas
                     txtID.Text = "";
                     txtNombre.Text = "";
                     txtApellido1.Text = "";
                     txtApellido2.Text = "";
                     txtCorreo.Text = "";
+                    cmbTipo.SelectedIndex = -1;
+                    txtUsuario.Text = "";
+                    txtContra.Text = "";
+                    txtContra2.Text = "";
                 }
             }
         }
