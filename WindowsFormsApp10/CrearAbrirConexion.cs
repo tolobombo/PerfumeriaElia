@@ -8,7 +8,7 @@ namespace WindowsFormsApp10
         static string pcName = System.Windows.Forms.SystemInformation.ComputerName;
         static string connectionString = @"Data Source=" + pcName + @"\SQLEXPRESS;Initial Catalog=perfumeriaElia;User ID=localhost;Password=admin";
         static string direccion = "Data Source=Localhost;Initial Catalog=PerfumeriaElia; Integrated Security=true";
-        SqlConnection conexionSqlConnection = new SqlConnection(direccion);
+        SqlConnection conexionSqlConnection = new SqlConnection(connectionString);
 
         // En esta parte tiene que ser estaticos los campos por la privacidad de la clase
         public void CrearAbrir()

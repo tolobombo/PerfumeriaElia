@@ -63,7 +63,7 @@ namespace WindowsFormsApp10
                 if (txtID.Text != "" && txtNombre.Text != "" && txtApellido1.Text != "" && txtApellido2.Text != "" && txtCorreo.Text != "" && correoValido && txtUsuario.Text != "" && txtContra.Text != "" && txtContra2.Text != "" && contraCoincide)
                 {
 
-                    dgvEmpleados.Rows.Add(txtID.Text,nombreCompleto,txtCorreo.Text,cmbTipo.SelectedItem.ToString());
+                    dgvEmpleados.Rows.Add(txtID.Text,nombreCompleto,txtCorreo.Text,txtUsuario.Text,cmbTipo.SelectedItem.ToString());
 
 
 
