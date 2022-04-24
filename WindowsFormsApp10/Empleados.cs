@@ -18,12 +18,19 @@ namespace WindowsFormsApp10
             InitializeComponent();
         }
 
-
+        ////////////////////////////////////////////////////////////////////
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            
+            VerificarDatos();
+        }
+
+        public void VerificarDatos()
+        {
+            Regex correoRegex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", RegexOptions.IgnoreCase);
+            string nombreCompleto = txtNombre.Text + " " + txtApellido1.Text + " " + txtApellido2.Text;
             bool correoValido = false;
             bool contraCoincide = false;
-            string nombreCompleto = txtNombre.Text+" "+txtApellido1.Text+" "+txtApellido2.Text;
 
             //Verificar que se llenen todos los campos.
             if (txtID.Text.Equals("") || txtNombre.Text.Equals("") || txtApellido1.Text.Equals("") || txtApellido2.Text.Equals("") || txtCorreo.Text.Equals("") || txtUsuario.Text.Equals("") || txtContra.Text.Equals("") || txtContra2.Text.Equals("") || cmbTipo.SelectedIndex == -1)
@@ -32,13 +39,13 @@ namespace WindowsFormsApp10
             }
 
             //Validar Correo
-            if (txtCorreo.Text!="")
+            if (txtCorreo.Text != "")
             {
-                if (CorreoValido(txtCorreo.Text) == false)
+                if (correoRegex.IsMatch(txtCorreo.Text) == false)
                 {
                     MessageBox.Show("Correo Invalido");
                 }
-                else if(CorreoValido(txtCorreo.Text))
+                else if (correoRegex.IsMatch(txtCorreo.Text))
                 {
                     correoValido = true;
                 }
@@ -57,15 +64,13 @@ namespace WindowsFormsApp10
                 }
             }
 
-            //Verificar que todos los campos tengan informacion y si el correo es valido para poder agregar los datos a la tabla.
+            //Verificar que todos los campos tengan informacion, aparte que el correo y contraseñas sean validos para poder agregar los datos a la tabla.
             if (cmbTipo.SelectedIndex == 0 || cmbTipo.SelectedIndex == 1)
             {
                 if (txtID.Text != "" && txtNombre.Text != "" && txtApellido1.Text != "" && txtApellido2.Text != "" && txtCorreo.Text != "" && correoValido && txtUsuario.Text != "" && txtContra.Text != "" && txtContra2.Text != "" && contraCoincide)
                 {
 
-                    dgvEmpleados.Rows.Add(txtID.Text,nombreCompleto,txtCorreo.Text,txtUsuario.Text,cmbTipo.SelectedItem.ToString());
-
-
+                    InsertarDatos(nombreCompleto);
 
                     //Limpiar casillas
                     txtID.Text = "";
@@ -80,12 +85,19 @@ namespace WindowsFormsApp10
                 }
             }
         }
-        public static bool CorreoValido(string correo)
-        {
-            Regex correoRegex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$",RegexOptions.IgnoreCase);
 
-            return correoRegex.IsMatch(correo);
+        AbrirCerrarConexion cnn = new AbrirCerrarConexion();
+        public void InsertarDatos(string nombre)
+        {
+            dgvEmpleados.Rows.Add(txtID.Text, nombre, txtCorreo.Text, txtUsuario.Text, cmbTipo.SelectedItem.ToString());
+
+            cnn.CrearAbrir();
+
         }
+        ////////////////////////////////////////////////////////////////////
+
+
+
 
         //////////////////////////////////////////////////////////////////// BOTONES SALIR, MINIMIZAR Y REGRESAR.
         private void btnSalir_Click(object sender, EventArgs e)
