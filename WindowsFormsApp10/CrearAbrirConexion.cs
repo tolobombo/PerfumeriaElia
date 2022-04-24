@@ -13,13 +13,9 @@ namespace WindowsFormsApp10
         // En esta parte tiene que ser estaticos los campos por la privacidad de la clase
         public void CrearAbrir()
         {
-
-
             conexionSqlConnection.Open();
 
             System.Windows.Forms.MessageBox.Show("Abierta");
-
-
         }
 
         public void Cerrar()
