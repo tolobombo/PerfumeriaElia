@@ -48,6 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CrearAbrirConexion.cs" />
+    <Compile Include="Respaldo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Respaldo.Designer.cs">
+      <DependentUpon>Respaldo.cs</DependentUpon>
+    </Compile>
     <Compile Include="MenuGerente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,6 +93,9 @@
     <Compile Include="Interface1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Respaldo.resx">
+      <DependentUpon>Respaldo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
       <SubType>Designer</SubType>
