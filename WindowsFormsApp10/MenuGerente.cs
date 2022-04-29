@@ -98,6 +98,14 @@ namespace WindowsFormsApp10
             Application.Exit();
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Respaldo respaldo = new Respaldo();
+            respaldo.Show();
+            this.Close();
+
+        }
         ///////////////////////////////////////////////////////////////
     }
 }

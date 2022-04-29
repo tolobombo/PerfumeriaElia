@@ -16,6 +16,7 @@ namespace WindowsFormsApp10
     public partial class Respaldo : Form
     {
         AbrirCerrarConexion conexion = new AbrirCerrarConexion();
+       
         public Respaldo()
         {
             InitializeComponent();
@@ -36,21 +37,63 @@ namespace WindowsFormsApp10
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string dataBase = conexion.ToString();
+            string dataBase = conexion.GetConexion().Database.ToString();
             if (textBox1.Text == String.Empty)
             {
                 MessageBox.Show("Ingresa la dirrecion del Backup");
             }
             else
             {
-                string cmd = "BACKUP DATABASE [" + dataBase + "] TO DISK '" + textBox1.Text + "\\" + "database" + "-" + DateTime.Now.ToString("yyyy-MM-dd-hh-mm-ss") + ".bak'";
-                conexion.CrearAbrir();
+                string cmd = "BACKUP DATABASE [" + dataBase + "] TO DISK= '" + textBox1.Text + "\\" + "database" + "-" + DateTime.Now.ToString("yyyy-MM-dd-hh-mm-ss") + ".bak'";
+                conexion.Abrir();
                 SqlCommand command = new SqlCommand(cmd,conexion.GetConexion());
                 command.ExecuteNonQuery();
                 MessageBox.Show("El respaldo a sido creado");
                 conexion.Cerrar();
                 button2.Enabled=false;
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFile = new OpenFileDialog();
+            
+            openFile.Title = "database restore";
+            if (openFile.ShowDialog() == DialogResult.OK) 
+            {
+                textBox2.Text = openFile.FileName;
+                button4.Enabled = true;
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string database = conexion.GetConexion().Database.ToString();
+            conexion.Abrir();
+
+            try
+            {
+                string st1 = string.Format("ALTER DATABASE [" + database + "] SET SINGLE_USER WITH ROLLBACK INMEDIATE");
+                SqlCommand comando1 = new SqlCommand(st1, conexion.GetConexion());
+                comando1.ExecuteNonQuery();
+
+                string st2 = string.Format("USE MASTER RESTORE DATABASE [" + database + "] FROM DISK='" + textBox2.Text + "' WITH REPLACE;");
+                SqlCommand comando2 = new SqlCommand(st2, conexion.GetConexion());
+                comando2.ExecuteNonQuery();
+
+                string st3 = string.Format("ALTER DATABASE [" + database + "] SET MULTI_USER"); 
+                SqlCommand comando3 = new SqlCommand(st3 , conexion.GetConexion());
+                comando3.ExecuteNonQuery();
+                MessageBox.Show("La base de datos a sido restaurada con exito!");
+                conexion.Cerrar();
+
+            }
+            catch (Exception x)
+            {
+
+                MessageBox.Show(x.Message);
+            }
+
         }
     }
 }

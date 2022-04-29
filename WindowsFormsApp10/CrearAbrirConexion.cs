@@ -11,7 +11,7 @@ namespace WindowsFormsApp10
         SqlConnection conexionSqlConnection = new SqlConnection(direccion);
 
         // En esta parte tiene que ser estaticos los campos por la privacidad de la clase
-        public void CrearAbrir()
+        public void Abrir()
         {
 
 
@@ -29,10 +29,12 @@ namespace WindowsFormsApp10
             System.Windows.Forms.MessageBox.Show("Cerrada");
         }
 
-        public SqlConnection GetConexion() 
+        public SqlConnection GetConexion()
         {
             return conexionSqlConnection;
-            
+
         }
+
+        
     }
 }

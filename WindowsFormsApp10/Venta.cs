@@ -20,7 +20,7 @@ namespace WindowsFormsApp10
         public Venta()
         {
             InitializeComponent();
-            Conexion.CrearAbrir();
+            Conexion.Abrir();
 
             
         }

@@ -41,6 +41,7 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.btnRegresar = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.mainPanel.SuspendLayout();
@@ -180,6 +181,7 @@
             // 
             // mainPanel
             // 
+            this.mainPanel.Controls.Add(this.button1);
             this.mainPanel.Controls.Add(this.btnRegresar);
             this.mainPanel.Controls.Add(this.btnInv);
             this.mainPanel.Controls.Add(this.btnEmp);
@@ -206,6 +208,19 @@
             this.btnRegresar.Text = "Regresar";
             this.btnRegresar.UseVisualStyleBackColor = true;
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
+            // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
+            this.button1.Location = new System.Drawing.Point(206, 289);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(44, 46);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Respaldo";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // MenuGerente
             // 
@@ -242,5 +257,6 @@
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.Button btnRegresar;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Button button1;
     }
 }
