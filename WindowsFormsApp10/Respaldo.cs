@@ -23,7 +23,7 @@ namespace WindowsFormsApp10
            
         }
 
-        ////////////////////////////////////////////////////////////////////
+        /// SELECCIONAR CARPETA ///////////////////////////////////////////////////////////////// 
         private void button1_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog file = new FolderBrowserDialog();
@@ -32,10 +32,11 @@ namespace WindowsFormsApp10
             {
                 textBox1.Text = file.SelectedPath;
                 button2.Enabled = true;
-
             }
         }
 
+
+        /// HACER RESPALDO ///////////////////////////////////////////////////////////////// 
         private void button2_Click(object sender, EventArgs e)
         {
             string dataBase = conexion.GetConexion().Database.ToString();
@@ -55,6 +56,7 @@ namespace WindowsFormsApp10
             }
         }
 
+        /// SELECCIONAR RESPALDOS ///////////////////////////////////////////////////////////////// 
         private void button3_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFile = new OpenFileDialog();
@@ -67,6 +69,7 @@ namespace WindowsFormsApp10
             }
         }
 
+        /// RESTORAR DATOS ///////////////////////////////////////////////////////////////// 
         private void button4_Click(object sender, EventArgs e)
         {
             string database = conexion.GetConexion().Database.ToString();
@@ -91,13 +94,34 @@ namespace WindowsFormsApp10
             }
             catch (Exception x)
             {
-
                 MessageBox.Show(x.Message);
             }
 
         }
         ////////////////////////////////////////////////////////////////////
         
+
+
+
+        //////////////////////////////////////////////////////////////////// BOTONES SALIR, MINIMIZAR Y REGRESAR.
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            MenuGerente mg = new MenuGerente();
+            mg.Show();
+            this.Close();
+        }
+        ////////////////////////////////////////////////////////////////////
+
 
 
 
@@ -126,21 +150,5 @@ namespace WindowsFormsApp10
         }
 
         ////////////////////////////////////////////////////////////////////
-        private void btnSalir_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void btnMinimizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void btnRegresar_Click(object sender, EventArgs e)
-        {
-            MenuGerente mg = new MenuGerente();
-            mg.Show();
-            this.Close();
-        }
     }
 }
