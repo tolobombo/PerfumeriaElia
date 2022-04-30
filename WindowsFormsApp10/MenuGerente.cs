@@ -18,7 +18,7 @@ namespace WindowsFormsApp10
             InitializeComponent();
         }
 
-        //////////////////////////////////////////////////////////////// ABRIR FORMULARIOS CON BOTONES
+        //////////////////////////////////////////////////////////////// ABRIR FORMULARIOS
         private void btnBit_Click(object sender, EventArgs e)
         {
             Bitacora bit = new Bitacora(); 
@@ -46,7 +46,12 @@ namespace WindowsFormsApp10
             ven.Show();
             this.Close();
         }
-
+        private void btnRes_Click(object sender, EventArgs e)
+        {
+            Respaldo res = new Respaldo();
+            res.Show();
+            this.Close();
+        }
         ///////////////////////////////////////////////////////////////
         
 
@@ -70,6 +75,7 @@ namespace WindowsFormsApp10
                 Location = new Point(currentScreenPos.X - mousePos.X, currentScreenPos.Y - mousePos.Y);
             }
         }
+
         private void topPanel_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
@@ -80,11 +86,9 @@ namespace WindowsFormsApp10
 
 
         /////////////////////////////////////////////////////////////// REGRESAR, MINIMIZAR Y CERRAR VENTANA
-        private void btnRegresar_Click(object sender, EventArgs e)
+        private void btnSalir_Click(object sender, EventArgs e)
         {
-            Login login = new Login();
-            login.Show();
-            this.Close();
+            Application.Exit();
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -92,19 +96,11 @@ namespace WindowsFormsApp10
             this.WindowState = FormWindowState.Minimized;
         }
 
-        
-        private void btnSalir_Click(object sender, EventArgs e)
+        private void btnRegresar_Click(object sender, EventArgs e)
         {
-            Application.Exit();
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Respaldo respaldo = new Respaldo();
-            respaldo.Show();
+            Login login = new Login();
+            login.Show();
             this.Close();
-
         }
         ///////////////////////////////////////////////////////////////
     }

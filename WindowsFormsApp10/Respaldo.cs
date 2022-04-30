@@ -23,6 +23,7 @@ namespace WindowsFormsApp10
            
         }
 
+        ////////////////////////////////////////////////////////////////////
         private void button1_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog file = new FolderBrowserDialog();
@@ -58,7 +59,7 @@ namespace WindowsFormsApp10
         {
             OpenFileDialog openFile = new OpenFileDialog();
             
-            openFile.Title = "database restore";
+            openFile.Title = "Seleccionar Respaldo";
             if (openFile.ShowDialog() == DialogResult.OK) 
             {
                 textBox2.Text = openFile.FileName;
@@ -94,6 +95,52 @@ namespace WindowsFormsApp10
                 MessageBox.Show(x.Message);
             }
 
+        }
+        ////////////////////////////////////////////////////////////////////
+        
+
+
+
+        //////////////////////////////////////////////////////////////////// ARRASTRAR VENTANA
+        bool mouseDown;
+        private Point mousePos;
+        private void topPanel_MouseDown(object sender, MouseEventArgs e)
+        {
+            mousePos.X = e.X;
+            mousePos.Y = e.Y;
+            mouseDown = true;
+        }
+
+        private void topPanel_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown == true)
+            {
+                Point currentScreenPos = PointToScreen(e.Location);
+                Location = new Point(currentScreenPos.X - mousePos.X, currentScreenPos.Y - mousePos.Y);
+            }
+        }
+
+        private void topPanel_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
+        }
+
+        ////////////////////////////////////////////////////////////////////
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void btnMinimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void btnRegresar_Click(object sender, EventArgs e)
+        {
+            MenuGerente mg = new MenuGerente();
+            mg.Show();
+            this.Close();
         }
     }
 }
