@@ -16,12 +16,13 @@ namespace WindowsFormsApp10
     {
         
         AbrirCerrarConexion Conexion = new AbrirCerrarConexion();
-        public string x;
+        public string x, nombre;
+        public int precio;
         public Venta()
         {
             InitializeComponent();
             Conexion.Abrir();
-
+            LlenadoOtrosMarca();
             
         }
 
@@ -81,6 +82,8 @@ namespace WindowsFormsApp10
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+            comboBox1.Text = "";
+            x = "CHANEL";
             LlenadoNombre();
         }
 
@@ -90,7 +93,7 @@ namespace WindowsFormsApp10
         }
         //Metodos 
 
-        private void LlenadoNombre() 
+        private void LlenadoOtrosMarca() 
         {
             SqlCommand comandoNombre = new SqlCommand();
             DataTable table = new DataTable();
@@ -99,13 +102,42 @@ namespace WindowsFormsApp10
 
             comandoNombre.CommandType = CommandType.Text;
 
-            comandoNombre.CommandText = "select * from inventario";
+            comandoNombre.CommandText = "select marcaProducto from inventario where marcaProducto <> 'CK' and marcaProducto<> 'BOSS'; ";
+
 
             SqlDataAdapter data = new SqlDataAdapter(comandoNombre);
             data.Fill(table);
 
-          
-           
+
+
+
+            //Llenar combobox
+
+            comboBox2.DataSource = table;
+
+            comboBox2.DisplayMember = "inventario";
+
+            comboBox2.ValueMember = "marcaProducto";
+        }
+        private void LlenadoNombre()
+        {
+
+            SqlCommand comandoNombre = new SqlCommand();
+            DataTable table = new DataTable();
+
+            comandoNombre.Connection = Conexion.GetConexion();
+
+            comandoNombre.CommandType = CommandType.Text;
+
+            comandoNombre.CommandText = $"select nombreProducto from inventario where marcaProducto = '{x}'";
+
+            
+            SqlDataAdapter data = new SqlDataAdapter(comandoNombre);
+            data.Fill(table);
+
+
+            
+            
             //Llenar combobox
 
             comboBox1.DataSource = table;
@@ -115,14 +147,119 @@ namespace WindowsFormsApp10
             comboBox1.ValueMember = "nombreProducto";
         }
 
+        private void LLenadoOtros() 
+        {
+            SqlCommand comandoNombre = new SqlCommand();
+            DataTable table = new DataTable();
+
+            comandoNombre.Connection = Conexion.GetConexion();
+
+            comandoNombre.CommandType = CommandType.Text;
+
+            comandoNombre.CommandText = $"select nombreProducto from inventario where marcaProducto = '{comboBox2.Text}'";
+
+
+            SqlDataAdapter data = new SqlDataAdapter(comandoNombre);
+            data.Fill(table);
 
 
 
+
+            //Llenar combobox
+
+            comboBox1.DataSource = table;
+
+            comboBox1.DisplayMember = "inventario";
+
+            comboBox1.ValueMember = "nombreProducto";
+        }
+        private void LlenarData(string nombre) 
+        {
+            
+
+            SqlCommand comandoPrecio = new SqlCommand($"select precioVenta from inventario where nombreProducto = '{nombre}'", Conexion.GetConexion());
+
+
+            precio = Convert.ToInt32(comandoPrecio.ExecuteScalar());
+
+        }
+
+
+        private void Total()
+        {
+            int total = 0;
+
+            for (int i = 0; i < dataGridView1.RowCount-1; i++)
+            {
+                total += int.Parse(dataGridView1.Rows[i].Cells[3].Value.ToString());
+            }
+
+
+            textBox1.Text = total.ToString();
+        }
+
+        private void Eliminar() 
+        {
+            dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
+        }
+
+        private void Suma() 
+        {
+            int a = Convert.ToInt32(textBox2.Text);
+            int b = Convert.ToInt32(textBox1.Text);
+
+            textBox3.Text = (a - b).ToString();
+        }
         private void button3_Click(object sender, EventArgs e)
         {
+            LlenarData(comboBox1.Text);
+            dataGridView1.Rows.Add(comboBox1.Text,precio,textBox4.Text, precio*Convert.ToInt32(textBox4.Text));
 
-            dataGridView1.Rows.Add(comboBox1.Text); 
-        
+            Total();
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            comboBox1.Text = "";
+            x = "PACO";
+            LlenadoNombre();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            comboBox1.Text = "";
+            x = "CK";
+            LlenadoNombre();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            comboBox1.Text = "";
+            x = "BOSS";
+            LlenadoNombre();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Eliminar();
+            Total();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Suma();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LLenadoOtros();
+            
         }
     }
 }

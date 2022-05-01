@@ -91,7 +91,7 @@ namespace WindowsFormsApp10
         {
             dgvEmpleados.Rows.Add(txtID.Text, nombre, txtCorreo.Text, txtUsuario.Text, cmbTipo.SelectedItem.ToString());
 
-            cnn.CrearAbrir();
+            cnn.Abrir();
 
         }
         ////////////////////////////////////////////////////////////////////
