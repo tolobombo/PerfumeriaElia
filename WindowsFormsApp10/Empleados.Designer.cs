@@ -32,7 +32,6 @@
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.topPanel = new System.Windows.Forms.Panel();
@@ -82,7 +81,7 @@
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
-            this.btnAgregar.Location = new System.Drawing.Point(891, 327);
+            this.btnAgregar.Location = new System.Drawing.Point(891, 321);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(86, 27);
             this.btnAgregar.TabIndex = 21;
@@ -102,18 +101,6 @@
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // button3
-            // 
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
-            this.button3.Location = new System.Drawing.Point(437, 360);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(86, 27);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Consulta";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // btnModificar
             // 
@@ -222,7 +209,6 @@
             this.panel1.Controls.Add(this.btnAgregar);
             this.panel1.Controls.Add(this.btnModificar);
             this.panel1.Controls.Add(this.btnEliminar);
-            this.panel1.Controls.Add(this.button3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 24);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
@@ -291,7 +277,7 @@
             this.cmbTipo.Items.AddRange(new object[] {
             "Usuario",
             "Administrador"});
-            this.cmbTipo.Location = new System.Drawing.Point(716, 333);
+            this.cmbTipo.Location = new System.Drawing.Point(716, 327);
             this.cmbTipo.Name = "cmbTipo";
             this.cmbTipo.Size = new System.Drawing.Size(121, 21);
             this.cmbTipo.TabIndex = 20;
@@ -302,7 +288,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
-            this.label7.Location = new System.Drawing.Point(713, 316);
+            this.label7.Location = new System.Drawing.Point(713, 310);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(114, 14);
             this.label7.TabIndex = 17;
@@ -440,7 +426,6 @@
         private System.Windows.Forms.DataGridView dgvEmpleados;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel topPanel;

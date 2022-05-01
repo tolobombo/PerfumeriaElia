@@ -152,6 +152,8 @@ namespace WindowsFormsApp10
 
             cmd.Dispose();
             cnn.Cerrar();
+
+            CargarDatos();
         }
         private void dgvEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

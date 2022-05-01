@@ -52,7 +52,7 @@ namespace WindowsFormsApp10
                 {
                     if (txtUser.Text == sqlDataReader.GetValue(0).ToString() && txtPassword.Text == sqlDataReader.GetValue(1).ToString())
                     {
-                        if (sqlDataReader.GetValue(2).ToString()=="admin")
+                        if (sqlDataReader.GetValue(2).ToString()=="Administrador")
                         {
                             menuGerente.Show();
                             this.Hide();
@@ -92,7 +92,6 @@ namespace WindowsFormsApp10
             
             MenuGerente mg = new MenuGerente();
             mg.Show();
-
             this.Hide();
             
         }
