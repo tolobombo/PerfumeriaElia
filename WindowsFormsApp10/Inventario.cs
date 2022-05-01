@@ -179,21 +179,17 @@ namespace WindowsFormsApp10
                 {
                     comandoAlta.Parameters.Clear();
 
-                    comandoAlta.Parameters.AddWithValue("@idProducto",Convert.ToString(dgv.Cells["Column1"].Value));
-                    comandoAlta.Parameters.AddWithValue("@nombreProducto",Convert.ToString(dgv.Cells["Column2"].Value));
-                    comandoAlta.Parameters.AddWithValue("@precioCompra",Convert.ToInt32(dgv.Cells["Column3"].Value));
-                    comandoAlta.Parameters.AddWithValue("@totalProducto",Convert.ToInt32(dgv.Cells["Column4"].Value));
-                    comandoAlta.Parameters.AddWithValue("@precioVenta",Convert.ToInt32(dgv.Cells["Column5"].Value));
+                    comandoAlta.Parameters.AddWithValue("@idProducto", Convert.ToString(dgv.Cells["Column1"].Value));
+                    comandoAlta.Parameters.AddWithValue("@nombreProducto", Convert.ToString(dgv.Cells["Column2"].Value));
+                    comandoAlta.Parameters.AddWithValue("@precioCompra", Convert.ToInt32(dgv.Cells["Column3"].Value));
+                    comandoAlta.Parameters.AddWithValue("@totalProducto", Convert.ToInt32(dgv.Cells["Column4"].Value));
+                    comandoAlta.Parameters.AddWithValue("@precioVenta", Convert.ToInt32(dgv.Cells["Column5"].Value));
                     comandoAlta.Parameters.AddWithValue("@marcaProducto", Convert.ToString(dgv.Cells["Column6"].Value));
                     comandoAlta.ExecuteNonQuery();
                 }
                 MessageBox.Show("Se dio de alta con exito!");
             }
-            catch (Exception ex)
-            {
-
-                MessageBox.Show("Error al agregar de tipo: "+ex);
-            }
+            catch (SqlException ex) { MessageBox.Show("Error de tipo " + ex); }
         }
         private void BajaProductos()
         {
@@ -201,7 +197,8 @@ namespace WindowsFormsApp10
             string sql = $"delete inventario where idProducto = '{txtMarca.Text}'";
             SqlCommand comandobaja = new SqlCommand(sql, Conexion.GetConexion());
             comandobaja.ExecuteNonQuery();
-            
+            MessageBox.Show("Se dio de baja el producto con exito!");
+
         }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -222,6 +219,7 @@ namespace WindowsFormsApp10
             //}
             label4.Text = "Ingresa el ID del producto a eliminar";
             dgvProductos.Hide();
+            dgv2.Rows.Clear();
             dgv2.Show();
 
 
@@ -249,6 +247,7 @@ namespace WindowsFormsApp10
         private void button2_Click(object sender, EventArgs e)
         {
             BajaProductos();
+            txtMarca.Text = "";
         }
     }
 }
