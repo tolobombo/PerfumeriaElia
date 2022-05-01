@@ -18,15 +18,24 @@ namespace WindowsFormsApp10
         {
             InitializeComponent();
             CargarDatos();
+            btnEliminar.Enabled = false;
         }
 
         ////////////////////////////////////////////////////////////////////
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            
             VerificarDatos();
         }
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            BorrarDatos();
+        }
+        ////////////////////////////////////////////////////////////////////
 
+
+
+
+        ////////////////////////////////////////////////////////////////////
         public void VerificarDatos()
         {
             Regex correoRegex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", RegexOptions.IgnoreCase);
@@ -88,44 +97,67 @@ namespace WindowsFormsApp10
             }
         }
 
+
+        //////////////////////////////////////////////////////////////////// CARGAR DATOS AL DATA GRID VIEW
+        public void CargarDatos()
+        {
+            cnn.Abrir();
+
+            String sql = "select * from empleados";
+            SqlDataAdapter SDA = new SqlDataAdapter(sql,cnn.GetConexion());
+            DataSet DS = new System.Data.DataSet();
+
+            SDA.Fill(DS, "empleados");
+
+            dgvEmpleados.DataSource = DS.Tables[0];
+
+            cnn.Cerrar();
+        }
+
+
+        //////////////////////////////////////////////////////////////////// INSERTAR DATOS A LA BD
         AbrirCerrarConexion cnn = new AbrirCerrarConexion();
         public void InsertarDatos(string nombre)
         {
             cnn.Abrir();
 
             SqlDataAdapter adapter = new SqlDataAdapter();
-            String sql;
-
-            sql = "insert into empleados (idEmpleado,nombreEmpleado,correoEmpleado,nombreUsuario,contraUsuario,tipoUsuario) " +
-                  "values('"+ txtID.Text +"','"+ nombre + "','" + txtCorreo.Text + "','" + txtUsuario.Text + "','" + txtContra.Text + "','" + txtContra.Text + "','" + ")";
+            String sql = "insert into empleados (idEmpleado,nombreEmpleado,correoEmpleado,nombreUsuario,contraUsuario,tipoUsuario) " +
+                         "values('" + txtID.Text + "','" + nombre + "','" + txtCorreo.Text + "','" + txtUsuario.Text + "','" + txtContra.Text + "','" + cmbTipo.SelectedItem.ToString() + "')";
 
             SqlCommand cmd = new SqlCommand(sql,cnn.GetConexion());
 
-            
+            adapter.InsertCommand = new SqlCommand(sql, cnn.GetConexion());
+            adapter.InsertCommand.ExecuteNonQuery();
 
-            MessageBox.Show("");
+            cmd.Dispose();
+            cnn.Cerrar();
+
+            CargarDatos();
         }
 
-        public void CargarDatos()
+        //////////////////////////////////////////////////////////////////// BORRAR DATOS DE LA BD
+        private string id = "";
+        public void BorrarDatos()
         {
             cnn.Abrir();
 
-            SqlCommand cmd;
-            SqlDataReader datareader;
-            String sql = "select idEmpleado,nombreEmpleado,correoEmpleado,nombreUsuario,contraUsuario,tipoUsuario from empleados";
+            SqlDataAdapter SDA = new SqlDataAdapter();
+            String sql = "Delete empleados where idEmpleado="+id;
 
-            cmd = new SqlCommand(sql, cnn.GetConexion());
+            SqlCommand cmd = new SqlCommand(sql,cnn.GetConexion());
 
-            datareader = cmd.ExecuteReader();
+            SDA.DeleteCommand = new SqlCommand(sql,cnn.GetConexion());
+            SDA.DeleteCommand.ExecuteNonQuery();
 
-            while (datareader.Read())
-            {
-                dgvEmpleados.Rows.Add(datareader.GetValue(0), datareader.GetValue(1), datareader.GetValue(2), datareader.GetValue(3), datareader.GetValue(4), datareader.GetValue(5));
-            }
-
-            datareader.Close();
             cmd.Dispose();
             cnn.Cerrar();
+        }
+        private void dgvEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnEliminar.Enabled = true;
+            DataGridViewRow row = this.dgvEmpleados.Rows[e.RowIndex];
+            id = row.Cells["idEmpleado"].Value.ToString();
         }
         ////////////////////////////////////////////////////////////////////
 
@@ -150,6 +182,7 @@ namespace WindowsFormsApp10
             this.Close();
         }
         ////////////////////////////////////////////////////////////////////
+
 
 
 
@@ -191,5 +224,6 @@ namespace WindowsFormsApp10
         {
 
         }
+
     }
 }
