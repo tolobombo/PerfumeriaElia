@@ -28,27 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.comboProductos = new System.Windows.Forms.ComboBox();
+            this.comboOtro = new System.Windows.Forms.ComboBox();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.txtPago = new System.Windows.Forms.TextBox();
+            this.txtCambio = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnPagar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtCantidad = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.topPanel = new System.Windows.Forms.Panel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -56,35 +56,37 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.btnRegresar = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.picChanel = new System.Windows.Forms.PictureBox();
+            this.picPaco = new System.Windows.Forms.PictureBox();
+            this.picCk = new System.Windows.Forms.PictureBox();
+            this.picBoss = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.mainPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picChanel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPaco)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCk)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoss)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvProductos
             // 
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvProductos.AllowUserToDeleteRows = false;
+            this.dgvProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
             this.Column4});
-            this.dataGridView1.Location = new System.Drawing.Point(13, 206);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(517, 271);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvProductos.Location = new System.Drawing.Point(13, 206);
+            this.dgvProductos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.dgvProductos.Name = "dgvProductos";
+            this.dgvProductos.ReadOnly = true;
+            this.dgvProductos.RowHeadersWidth = 51;
+            this.dgvProductos.Size = new System.Drawing.Size(517, 271);
+            this.dgvProductos.TabIndex = 0;
             // 
             // Column1
             // 
@@ -110,50 +112,50 @@
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             // 
-            // comboBox1
+            // comboProductos
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(14, 175);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(300, 23);
-            this.comboBox1.TabIndex = 5;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.comboProductos.FormattingEnabled = true;
+            this.comboProductos.Location = new System.Drawing.Point(14, 175);
+            this.comboProductos.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.comboProductos.Name = "comboProductos";
+            this.comboProductos.Size = new System.Drawing.Size(300, 23);
+            this.comboProductos.TabIndex = 5;
+            this.comboProductos.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // comboBox2
+            // comboOtro
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(730, 69);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(140, 23);
-            this.comboBox2.TabIndex = 6;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.comboOtro.FormattingEnabled = true;
+            this.comboOtro.Location = new System.Drawing.Point(730, 69);
+            this.comboOtro.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.comboOtro.Name = "comboOtro";
+            this.comboOtro.Size = new System.Drawing.Size(140, 23);
+            this.comboOtro.TabIndex = 6;
+            this.comboOtro.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
-            // textBox1
+            // txtTotal
             // 
-            this.textBox1.Location = new System.Drawing.Point(746, 178);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(116, 20);
-            this.textBox1.TabIndex = 7;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtTotal.Location = new System.Drawing.Point(746, 178);
+            this.txtTotal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(116, 20);
+            this.txtTotal.TabIndex = 7;
+            this.txtTotal.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // textBox2
+            // txtPago
             // 
-            this.textBox2.Location = new System.Drawing.Point(746, 242);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(116, 20);
-            this.textBox2.TabIndex = 8;
+            this.txtPago.Location = new System.Drawing.Point(746, 242);
+            this.txtPago.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtPago.Name = "txtPago";
+            this.txtPago.Size = new System.Drawing.Size(116, 20);
+            this.txtPago.TabIndex = 8;
             // 
-            // textBox3
+            // txtCambio
             // 
-            this.textBox3.Location = new System.Drawing.Point(746, 369);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(116, 20);
-            this.textBox3.TabIndex = 9;
+            this.txtCambio.Location = new System.Drawing.Point(746, 369);
+            this.txtCambio.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtCambio.Name = "txtCambio";
+            this.txtCambio.Size = new System.Drawing.Size(116, 20);
+            this.txtCambio.TabIndex = 9;
             // 
             // label1
             // 
@@ -215,19 +217,19 @@
             this.label5.TabIndex = 14;
             this.label5.Text = "Su pago";
             // 
-            // button1
+            // btnPagar
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
-            this.button1.Location = new System.Drawing.Point(758, 292);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 27);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Pagar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnPagar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPagar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
+            this.btnPagar.Location = new System.Drawing.Point(758, 292);
+            this.btnPagar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnPagar.Name = "btnPagar";
+            this.btnPagar.Size = new System.Drawing.Size(88, 27);
+            this.btnPagar.TabIndex = 15;
+            this.btnPagar.Text = "Pagar";
+            this.btnPagar.UseVisualStyleBackColor = true;
+            this.btnPagar.Click += new System.EventHandler(this.button1_Click);
             // 
             // label6
             // 
@@ -241,13 +243,13 @@
             this.label6.TabIndex = 16;
             this.label6.Text = "Su Cambio";
             // 
-            // textBox4
+            // txtCantidad
             // 
-            this.textBox4.Location = new System.Drawing.Point(371, 175);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(135, 20);
-            this.textBox4.TabIndex = 18;
+            this.txtCantidad.Location = new System.Drawing.Point(371, 175);
+            this.txtCantidad.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.Size = new System.Drawing.Size(135, 20);
+            this.txtCantidad.TabIndex = 18;
             // 
             // label7
             // 
@@ -275,19 +277,19 @@
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // btnEliminar
             // 
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
-            this.button4.Location = new System.Drawing.Point(557, 239);
-            this.button4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(135, 27);
-            this.button4.TabIndex = 21;
-            this.button4.Text = "Eliminar Cantidad";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
+            this.btnEliminar.Location = new System.Drawing.Point(557, 239);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(135, 27);
+            this.btnEliminar.TabIndex = 21;
+            this.btnEliminar.Text = "Eliminar Cantidad";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.button4_Click);
             // 
             // topPanel
             // 
@@ -360,27 +362,27 @@
             // 
             this.mainPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.mainPanel.Controls.Add(this.btnRegresar);
-            this.mainPanel.Controls.Add(this.pictureBox1);
-            this.mainPanel.Controls.Add(this.pictureBox2);
-            this.mainPanel.Controls.Add(this.pictureBox3);
-            this.mainPanel.Controls.Add(this.dataGridView1);
-            this.mainPanel.Controls.Add(this.button4);
-            this.mainPanel.Controls.Add(this.pictureBox4);
+            this.mainPanel.Controls.Add(this.picChanel);
+            this.mainPanel.Controls.Add(this.picPaco);
+            this.mainPanel.Controls.Add(this.picCk);
+            this.mainPanel.Controls.Add(this.dgvProductos);
+            this.mainPanel.Controls.Add(this.btnEliminar);
+            this.mainPanel.Controls.Add(this.picBoss);
             this.mainPanel.Controls.Add(this.btnAgregar);
             this.mainPanel.Controls.Add(this.label1);
             this.mainPanel.Controls.Add(this.label7);
             this.mainPanel.Controls.Add(this.label2);
-            this.mainPanel.Controls.Add(this.textBox4);
-            this.mainPanel.Controls.Add(this.comboBox2);
+            this.mainPanel.Controls.Add(this.txtCantidad);
+            this.mainPanel.Controls.Add(this.comboOtro);
             this.mainPanel.Controls.Add(this.label3);
             this.mainPanel.Controls.Add(this.label6);
-            this.mainPanel.Controls.Add(this.comboBox1);
-            this.mainPanel.Controls.Add(this.button1);
+            this.mainPanel.Controls.Add(this.comboProductos);
+            this.mainPanel.Controls.Add(this.btnPagar);
             this.mainPanel.Controls.Add(this.label4);
             this.mainPanel.Controls.Add(this.label5);
-            this.mainPanel.Controls.Add(this.textBox1);
-            this.mainPanel.Controls.Add(this.textBox2);
-            this.mainPanel.Controls.Add(this.textBox3);
+            this.mainPanel.Controls.Add(this.txtTotal);
+            this.mainPanel.Controls.Add(this.txtPago);
+            this.mainPanel.Controls.Add(this.txtCambio);
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(0, 30);
             this.mainPanel.Margin = new System.Windows.Forms.Padding(2);
@@ -402,53 +404,53 @@
             this.btnRegresar.UseVisualStyleBackColor = true;
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
-            // pictureBox1
+            // picChanel
             // 
-            this.pictureBox1.Image = global::WindowsFormsApp10.Properties.Resources.LogoChanel;
-            this.pictureBox1.Location = new System.Drawing.Point(41, 41);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(107, 103);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.picChanel.Image = global::WindowsFormsApp10.Properties.Resources.LogoChanel;
+            this.picChanel.Location = new System.Drawing.Point(41, 41);
+            this.picChanel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.picChanel.Name = "picChanel";
+            this.picChanel.Size = new System.Drawing.Size(107, 103);
+            this.picChanel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picChanel.TabIndex = 1;
+            this.picChanel.TabStop = false;
+            this.picChanel.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // pictureBox2
+            // picPaco
             // 
-            this.pictureBox2.Image = global::WindowsFormsApp10.Properties.Resources.LogoPaco;
-            this.pictureBox2.Location = new System.Drawing.Point(190, 41);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(107, 103);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.picPaco.Image = global::WindowsFormsApp10.Properties.Resources.LogoPaco;
+            this.picPaco.Location = new System.Drawing.Point(190, 41);
+            this.picPaco.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.picPaco.Name = "picPaco";
+            this.picPaco.Size = new System.Drawing.Size(107, 103);
+            this.picPaco.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picPaco.TabIndex = 2;
+            this.picPaco.TabStop = false;
+            this.picPaco.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
-            // pictureBox3
+            // picCk
             // 
-            this.pictureBox3.Image = global::WindowsFormsApp10.Properties.Resources.LogoCk;
-            this.pictureBox3.Location = new System.Drawing.Point(349, 41);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(107, 103);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 3;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.picCk.Image = global::WindowsFormsApp10.Properties.Resources.LogoCk;
+            this.picCk.Location = new System.Drawing.Point(349, 41);
+            this.picCk.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.picCk.Name = "picCk";
+            this.picCk.Size = new System.Drawing.Size(107, 103);
+            this.picCk.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picCk.TabIndex = 3;
+            this.picCk.TabStop = false;
+            this.picCk.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
-            // pictureBox4
+            // picBoss
             // 
-            this.pictureBox4.Image = global::WindowsFormsApp10.Properties.Resources.LogoBoss;
-            this.pictureBox4.Location = new System.Drawing.Point(498, 41);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(107, 103);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 4;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            this.picBoss.Image = global::WindowsFormsApp10.Properties.Resources.LogoBoss;
+            this.picBoss.Location = new System.Drawing.Point(498, 41);
+            this.picBoss.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.picBoss.Name = "picBoss";
+            this.picBoss.Size = new System.Drawing.Size(107, 103);
+            this.picBoss.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBoss.TabIndex = 4;
+            this.picBoss.TabStop = false;
+            this.picBoss.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // Venta
             // 
@@ -464,47 +466,47 @@
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "Venta";
             this.Text = "Venta";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.mainPanel.ResumeLayout(false);
             this.mainPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picChanel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picPaco)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCk)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBoss)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.PictureBox picChanel;
+        private System.Windows.Forms.PictureBox picPaco;
+        private System.Windows.Forms.PictureBox picCk;
+        private System.Windows.Forms.PictureBox picBoss;
+        private System.Windows.Forms.ComboBox comboProductos;
+        private System.Windows.Forms.ComboBox comboOtro;
+        private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.TextBox txtPago;
+        private System.Windows.Forms.TextBox txtCambio;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnPagar;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Panel topPanel;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Label label8;

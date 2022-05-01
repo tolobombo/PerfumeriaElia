@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CrearAbrirConexion.cs" />
+    <Compile Include="CtrlProductos.cs" />
+    <Compile Include="Productos.cs" />
     <Compile Include="Respaldo.cs">
       <SubType>Form</SubType>
     </Compile>
