@@ -63,6 +63,7 @@
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.topPanel.SuspendLayout();
@@ -80,6 +81,7 @@
             this.Nombre,
             this.Correo,
             this.Usuario,
+            this.Column1,
             this.TipoUsuario});
             this.dgvEmpleados.Location = new System.Drawing.Point(9, 5);
             this.dgvEmpleados.Name = "dgvEmpleados";
@@ -448,6 +450,12 @@
             this.Usuario.Name = "Usuario";
             this.Usuario.ReadOnly = true;
             // 
+            // Column1
+            // 
+            this.Column1.FillWeight = 80F;
+            this.Column1.HeaderText = "Contraseña";
+            this.Column1.Name = "Column1";
+            // 
             // TipoUsuario
             // 
             this.TipoUsuario.FillWeight = 60F;
@@ -514,6 +522,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Correo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoUsuario;
     }
 }

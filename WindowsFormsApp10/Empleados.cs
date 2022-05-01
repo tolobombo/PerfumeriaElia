@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Data.SqlClient;
 
 namespace WindowsFormsApp10
 {
@@ -16,6 +17,7 @@ namespace WindowsFormsApp10
         public Empleados()
         {
             InitializeComponent();
+            CargarDatos();
         }
 
         ////////////////////////////////////////////////////////////////////
@@ -89,10 +91,41 @@ namespace WindowsFormsApp10
         AbrirCerrarConexion cnn = new AbrirCerrarConexion();
         public void InsertarDatos(string nombre)
         {
-            dgvEmpleados.Rows.Add(txtID.Text, nombre, txtCorreo.Text, txtUsuario.Text, cmbTipo.SelectedItem.ToString());
-
             cnn.Abrir();
 
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            String sql;
+
+            sql = "insert into empleados (idEmpleado,nombreEmpleado,correoEmpleado,nombreUsuario,contraUsuario,tipoUsuario) " +
+                  "values('"+ txtID.Text +"','"+ nombre + "','" + txtCorreo.Text + "','" + txtUsuario.Text + "','" + txtContra.Text + "','" + txtContra.Text + "','" + ")";
+
+            SqlCommand cmd = new SqlCommand(sql,cnn.GetConexion());
+
+            
+
+            MessageBox.Show("");
+        }
+
+        public void CargarDatos()
+        {
+            cnn.Abrir();
+
+            SqlCommand cmd;
+            SqlDataReader datareader;
+            String sql = "select idEmpleado,nombreEmpleado,correoEmpleado,nombreUsuario,contraUsuario,tipoUsuario from empleados";
+
+            cmd = new SqlCommand(sql, cnn.GetConexion());
+
+            datareader = cmd.ExecuteReader();
+
+            while (datareader.Read())
+            {
+                dgvEmpleados.Rows.Add(datareader.GetValue(0), datareader.GetValue(1), datareader.GetValue(2), datareader.GetValue(3), datareader.GetValue(4), datareader.GetValue(5));
+            }
+
+            datareader.Close();
+            cmd.Dispose();
+            cnn.Cerrar();
         }
         ////////////////////////////////////////////////////////////////////
 
