@@ -135,6 +135,10 @@ namespace WindowsFormsApp10
 
             CargarDatos();
         }
+        ////////////////////////////////////////////////////////////////////
+
+
+
 
         //////////////////////////////////////////////////////////////////// BORRAR DATOS DE LA BD
         private string id = "";
@@ -157,9 +161,12 @@ namespace WindowsFormsApp10
         }
         private void dgvEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            btnEliminar.Enabled = true;
-            DataGridViewRow row = this.dgvEmpleados.Rows[e.RowIndex];
-            id = row.Cells["idEmpleado"].Value.ToString();
+            if (e.RowIndex >= 0)//botaba error si se daba clic en el nombre de las columnas del dgv (no puede con "-1")
+            {
+                btnEliminar.Enabled = true;
+                DataGridViewRow row = this.dgvEmpleados.Rows[e.RowIndex];
+                id = row.Cells["idEmpleado"].Value.ToString();
+            }
         }
         ////////////////////////////////////////////////////////////////////
 
