@@ -18,8 +18,6 @@ namespace WindowsFormsApp10
         {
             InitializeComponent();
             CargarDatos();
-            btnEliminar.Enabled = false;
-            btnModificar.Enabled = false;
         }
 
         ////////////////////////////////////////////////////////////////////
@@ -33,7 +31,28 @@ namespace WindowsFormsApp10
         }
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("AAAAUUUUGHH");
+            ModificarDatos();
+        }
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            dgvEmpleados.ClearSelection();
+            txtID.Text = "";
+            txtNombre.Text = "";
+            txtApellido1.Text = "";
+            txtApellido2.Text = "";
+            txtCorreo.Text = "";
+            cmbTipo.SelectedIndex = -1;
+            txtUsuario.Text = "";
+            txtContra.Text = "";
+            txtContra2.Text = "";
+
+            btnAgregar.Enabled = true;
+
+            txtID.Enabled = true;
+            txtUsuario.Enabled = true;
+            txtContra.Enabled = true;
+            txtContra2.Enabled = true;
+            cmbTipo.Enabled = true;
         }
         ////////////////////////////////////////////////////////////////////
 
@@ -41,6 +60,7 @@ namespace WindowsFormsApp10
 
 
         ////////////////////////////////////////////////////////////////////
+        AbrirCerrarConexion cnn = new AbrirCerrarConexion();
         public void VerificarDatos()
         {
             Regex correoRegex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", RegexOptions.IgnoreCase);
@@ -85,25 +105,12 @@ namespace WindowsFormsApp10
             {
                 if (txtID.Text != "" && txtNombre.Text != "" && txtApellido1.Text != "" && txtApellido2.Text != "" && txtCorreo.Text != "" && correoValido && txtUsuario.Text != "" && txtContra.Text != "" && txtContra2.Text != "" && contraCoincide)
                 {
-
                     InsertarDatos(nombreCompleto);
-
-                    //Limpiar casillas
-                    txtID.Text = "";
-                    txtNombre.Text = "";
-                    txtApellido1.Text = "";
-                    txtApellido2.Text = "";
-                    txtCorreo.Text = "";
-                    cmbTipo.SelectedIndex = -1;
-                    txtUsuario.Text = "";
-                    txtContra.Text = "";
-                    txtContra2.Text = "";
                 }
             }
         }
 
-
-        //////////////////////////////////////////////////////////////////// CARGAR DATOS AL DATA GRID VIEW
+        ///CARGAR DATOS AL DATA GRID VIEW
         public void CargarDatos()
         {
             cnn.Abrir();
@@ -118,12 +125,20 @@ namespace WindowsFormsApp10
 
             cnn.Cerrar();
 
+
             dgvEmpleados.ClearSelection();
+            txtID.Text = "";
+            txtNombre.Text = "";
+            txtApellido1.Text = "";
+            txtApellido2.Text = "";
+            txtCorreo.Text = "";
+            cmbTipo.SelectedIndex = -1;
+            txtUsuario.Text = "";
+            txtContra.Text = "";
+            txtContra2.Text = "";
         }
 
-
-        //////////////////////////////////////////////////////////////////// INSERTAR DATOS A LA BD
-        AbrirCerrarConexion cnn = new AbrirCerrarConexion();
+        ///INSERTAR DATOS A LA BD
         public void InsertarDatos(string nombre)
         {
             cnn.Abrir();
@@ -142,12 +157,55 @@ namespace WindowsFormsApp10
 
             CargarDatos();
         }
-        ////////////////////////////////////////////////////////////////////
 
+        ///MODIFICAR DATOS GUARDADOS 
+        public void ModificarDatos()
+        {
+            Regex correoRegex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", RegexOptions.IgnoreCase);
+            string nombre = txtNombre.Text + " " +txtApellido1.Text + " " + txtApellido2.Text;
+            bool correoValido = false;
 
+            //Validar Correo
+            if (txtCorreo.Text != "")
+            {
+                if (correoRegex.IsMatch(txtCorreo.Text) == false)
+                {
+                    MessageBox.Show("Correo Invalido");
+                }
+                else if (correoRegex.IsMatch(txtCorreo.Text))
+                {
+                    correoValido = true;
+                }
+            }
 
+            if (correoValido)
+            {
+                cnn.Abrir();
 
-        //////////////////////////////////////////////////////////////////// BORRAR DATOS DE LA BD
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                String sql = "Update empleados set nombreEmpleado='"+nombre+"',correoEmpleado='"+txtCorreo.Text+"' where idEmpleado="+id;
+
+                SqlCommand cmd = new SqlCommand(sql, cnn.GetConexion());
+
+                adapter.UpdateCommand = new SqlCommand(sql, cnn.GetConexion());
+                adapter.UpdateCommand.ExecuteNonQuery();
+
+                cmd.Dispose();
+                cnn.Cerrar();
+
+                txtID.Enabled = true;
+                txtUsuario.Enabled = true;
+                txtContra.Enabled = true;
+                txtContra2.Enabled = true;
+                cmbTipo.Enabled = true;
+
+                btnAgregar.Enabled = true;
+
+                CargarDatos();
+            }
+        }
+
+        ///BORRAR DATOS DE LA BD
         private string id = "";
         public void BorrarDatos()
         {
@@ -172,8 +230,25 @@ namespace WindowsFormsApp10
             {
                 btnEliminar.Enabled = true;
                 btnModificar.Enabled = true;
+
+                btnAgregar.Enabled = false;
+
                 DataGridViewRow row = this.dgvEmpleados.Rows[e.RowIndex];
                 id = row.Cells["idEmpleado"].Value.ToString();
+
+                string nombre = row.Cells["nombreEmpleado"].Value.ToString();
+                string[] nombreArray = nombre.Split(' ');
+
+                txtID.Enabled = false;
+                txtUsuario.Enabled = false;
+                txtContra.Enabled = false;
+                txtContra2.Enabled = false;
+                cmbTipo.Enabled = false;
+
+                txtNombre.Text = nombreArray[0];
+                txtApellido1.Text = nombreArray[1];
+                txtApellido2.Text = nombreArray[2];
+                txtCorreo.Text = row.Cells["correoEmpleado"].Value.ToString();
             }
         }
         ////////////////////////////////////////////////////////////////////
@@ -238,26 +313,14 @@ namespace WindowsFormsApp10
         {
             mouseDown = false;
         }
-        ////////////////////////////////////////////////////////////////////
-
-
-
 
         ////////////////////////////////////////////////////////////////////
-        private void label7_Click(object sender, EventArgs e)
-        {
 
-        }
 
-        private void cmbTipo_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
 
-        private void Empleados_Load(object sender, EventArgs e)
-        {
-            dgvEmpleados.ClearSelection();
-        }
+        ////////////////////////////////////////////////////////////////////
+
 
     }
 }
