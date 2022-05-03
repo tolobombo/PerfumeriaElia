@@ -33,7 +33,7 @@ namespace WindowsFormsApp10
         }
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            dgvEmpleados.ClearSelection();
+            MessageBox.Show("AAAAUUUUGHH");
         }
         ////////////////////////////////////////////////////////////////////
 
@@ -252,5 +252,9 @@ namespace WindowsFormsApp10
 
         }
 
+        private void Empleados_Load(object sender, EventArgs e)
+        {
+            dgvEmpleados.ClearSelection();
+        }
     }
 }
