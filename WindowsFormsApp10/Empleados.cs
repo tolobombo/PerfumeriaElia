@@ -117,6 +117,8 @@ namespace WindowsFormsApp10
             dgvEmpleados.DataSource = DS.Tables[0];
 
             cnn.Cerrar();
+
+            dgvEmpleados.ClearSelection();
         }
 
 
@@ -164,7 +166,7 @@ namespace WindowsFormsApp10
 
             CargarDatos();
         }
-        private void dgvEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)//botaba error si se daba clic en el nombre de las columnas del dgv (no puede con "-1")
             {
@@ -256,5 +258,6 @@ namespace WindowsFormsApp10
         {
             dgvEmpleados.ClearSelection();
         }
+
     }
 }
