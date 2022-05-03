@@ -18,99 +18,102 @@ namespace WindowsFormsApp10
         {
             InitializeComponent();
         }
-
-        ////////////////////////////////////////////////////////////////// INICIAR CONEXION CON BASE DE DATOS
-        
-        public void conexionSQL()
-        {
-            MenuGerente menuGerente = new MenuGerente();
-            Venta venta = new Venta();
-
-            string pcName = System.Windows.Forms.SystemInformation.ComputerName;
-
-            string connectionString = @"Data Source=" + pcName + @"\SQLEXPRESS;Initial Catalog=perfumeriaElia;User ID=localhost;Password=admin";
-
-            try
-            {
-                SqlConnection cnn = new SqlConnection(connectionString);
-
-                cnn.Open();
-
-                SqlCommand cmd;
-                SqlDataReader sqlDataReader;
-                String sql;
-
-                sql = "Select nombreUsuario,contraUsuario,tipoUsuario from empleados";   ///// AGARRA USUARIO CONTRA Y ROL DE LA TABLA DE EMPLEADOS
-
-                cmd = new SqlCommand(sql, cnn);
-
-                sqlDataReader = cmd.ExecuteReader();
+        //// INSTANCIAS //////////////////////////////////////////////////
 
 
-                //// LO COMPARA CON LO INGRESADO EN LOS TEXTBOX Y SI COINCIDEN SE VUELVE A COMPARAR PARA DETERMINAR EL ROL
-                while (sqlDataReader.Read())
-                {
-                    if (txtUser.Text == sqlDataReader.GetValue(0).ToString() && txtPassword.Text == sqlDataReader.GetValue(1).ToString())
-                    {
-                        if (sqlDataReader.GetValue(2).ToString()=="Administrador")
-                        {
-                            menuGerente.Show();
-                            this.Hide();
-                        }
-                        else
-                        {
-                            venta.Show();
-                            this.Hide();
-                        }
-                    }
-                    else
-                    {
-                        //loginError();
-                    }
-                }
-
-                sqlDataReader.Close();
-                cmd.Dispose();
-                cnn.Close();
-
-            }
-            catch (Exception)
-            {
-                
-            }
-        }
-        //////////////////////////////////////////////////////////////////
-
-
+        AbrirCerrarConexion cnn = new AbrirCerrarConexion();
+        MenuGerente mg = new MenuGerente();
+        Venta venta = new Venta();
 
 
         //////////////////////////////////////////////////////////////////
         public void btnLogin_Click_1(object sender, EventArgs e)
         {
-            //conexionSQL();
+            VerificarUsuario();
 
-            
-            MenuGerente mg = new MenuGerente();
+            /*
             mg.Show();
             this.Hide();
-            
+            */
         }
 
-        private void Login_Load(object sender, EventArgs e)
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
         {
-            
+            if (e.KeyCode == Keys.Enter)
+            {
+                VerificarUsuario();
+            }
         }
 
         private void Login_Shown(object sender, EventArgs e)
         {
             txtUser.Focus();
         }
+        //////////////////////////////////////////////////////////////////
 
-        public void loginError()
+
+
+
+        //////////////////////////////////////////////////////////////////
+        public void VerificarUsuario()
         {
-            MessageBox.Show("El Usuario/Contraseña No Es Valido, Intentelo De Nuevo.");
+            if (txtUser.Text.Equals("") || txtPassword.Text.Equals(""))
+            {
+                MessageBox.Show("Favor De No Dejar Campos Vacios.");
+            }
+            else
+            {
+                cnn.Abrir();
+
+                SqlDataReader sqlDataReader;
+                String sql = "Select nombreUsuario,contraUsuario,tipoUsuario from empleados";
+                SqlCommand cmd = new SqlCommand(sql, cnn.GetConexion());
+
+                sqlDataReader = cmd.ExecuteReader();
+
+                bool coincide = false;
+                string tipoUsuario = "";
+
+                while (sqlDataReader.Read())
+                {
+                    if (txtUser.Text != sqlDataReader.GetValue(0).ToString() || txtPassword.Text != sqlDataReader.GetValue(1).ToString())
+                    {
+                        coincide = false;
+                    }
+                    else if (txtUser.Text == sqlDataReader.GetValue(0).ToString() && txtPassword.Text == sqlDataReader.GetValue(1).ToString())
+                    {
+                        tipoUsuario = sqlDataReader.GetValue(2).ToString();
+                        coincide = true;
+                        break;
+                    }
+                }
+
+                if (coincide)
+                {
+                    if (tipoUsuario == "Administrador")
+                    {
+                        mg.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        venta.Show();
+                        this.Hide();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El Usuario/Contraseña No Es Valido, Intentelo De Nuevo.");
+                }
+
+                sqlDataReader.Close();
+                cmd.Dispose();
+                cnn.Cerrar();
+
+            }
+
         }
-        /////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////
 
 
 
@@ -143,7 +146,7 @@ namespace WindowsFormsApp10
 
 
 
-        //////////////////////////////////////////////////////////////// BOTONES PA MINIMIZAR, CERRAR/SALIR, Y CONTINUAR CON ENTER
+        //////////////////////////////////////////////////////////////// BOTONES PA MINIMIZAR Y CERRAR/SALIR
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
@@ -152,19 +155,6 @@ namespace WindowsFormsApp10
         private void btnSalir_Click_1(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
-        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                conexionSQL();
-            }
-        }
-
-        private void mainPanel_Paint(object sender, PaintEventArgs e)
-        {
-
         }
         ////////////////////////////////////////////////////////////////
     }
