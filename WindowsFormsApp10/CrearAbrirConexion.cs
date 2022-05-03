@@ -15,20 +15,19 @@ namespace WindowsFormsApp10
         {
             conexionSqlConnection.Open();
 
-            System.Windows.Forms.MessageBox.Show("Abierta");
+            //System.Windows.Forms.MessageBox.Show("Abierta");
         }
 
         public void Cerrar()
         {
             conexionSqlConnection.Close();
 
-            System.Windows.Forms.MessageBox.Show("Cerrada");
+            //System.Windows.Forms.MessageBox.Show("Cerrada");
         }
 
         public SqlConnection GetConexion()
         {
             return conexionSqlConnection;
-
         }
 
         
