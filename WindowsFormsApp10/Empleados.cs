@@ -19,6 +19,7 @@ namespace WindowsFormsApp10
             InitializeComponent();
             CargarDatos();
             btnEliminar.Enabled = false;
+            btnModificar.Enabled = false;
         }
 
         ////////////////////////////////////////////////////////////////////
@@ -29,6 +30,10 @@ namespace WindowsFormsApp10
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             BorrarDatos();
+        }
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            dgvEmpleados.ClearSelection();
         }
         ////////////////////////////////////////////////////////////////////
 
@@ -164,6 +169,7 @@ namespace WindowsFormsApp10
             if (e.RowIndex >= 0)//botaba error si se daba clic en el nombre de las columnas del dgv (no puede con "-1")
             {
                 btnEliminar.Enabled = true;
+                btnModificar.Enabled = true;
                 DataGridViewRow row = this.dgvEmpleados.Rows[e.RowIndex];
                 id = row.Cells["idEmpleado"].Value.ToString();
             }
@@ -189,6 +195,18 @@ namespace WindowsFormsApp10
             MenuGerente mg = new MenuGerente();
             mg.Show();
             this.Close();
+        }
+        private void MainPanel_Click(object sender, EventArgs e)
+        {
+            dgvEmpleados.ClearSelection();
+            btnEliminar.Enabled = false;
+            btnModificar.Enabled = false;
+        }
+        private void topPanel_Click(object sender, EventArgs e)
+        {
+            dgvEmpleados.ClearSelection();
+            btnEliminar.Enabled = false;
+            btnModificar.Enabled = false;
         }
         ////////////////////////////////////////////////////////////////////
 

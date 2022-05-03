@@ -38,7 +38,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.MainPanel = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.txtContra2 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -61,17 +61,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.MainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvEmpleados
             // 
+            this.dgvEmpleados.AllowUserToAddRows = false;
             this.dgvEmpleados.AllowUserToDeleteRows = false;
             this.dgvEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmpleados.Location = new System.Drawing.Point(9, 5);
             this.dgvEmpleados.Name = "dgvEmpleados";
+            this.dgvEmpleados.ReadOnly = true;
+            this.dgvEmpleados.RowHeadersVisible = false;
             this.dgvEmpleados.RowHeadersWidth = 51;
+            this.dgvEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEmpleados.Size = new System.Drawing.Size(698, 349);
             this.dgvEmpleados.TabIndex = 0;
             this.dgvEmpleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellContentClick);
@@ -113,6 +117,7 @@
             this.btnModificar.TabIndex = 4;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // label1
             // 
@@ -138,6 +143,7 @@
             this.topPanel.Name = "topPanel";
             this.topPanel.Size = new System.Drawing.Size(989, 24);
             this.topPanel.TabIndex = 15;
+            this.topPanel.Click += new System.EventHandler(this.topPanel_Click);
             this.topPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.topPanel_MouseDown);
             this.topPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.topPanel_MouseMove);
             this.topPanel.MouseUp += new System.Windows.Forms.MouseEventHandler(this.topPanel_MouseUp);
@@ -184,37 +190,38 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // panel1
+            // MainPanel
             // 
-            this.panel1.Controls.Add(this.label10);
-            this.panel1.Controls.Add(this.txtContra2);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.txtContra);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.txtUsuario);
-            this.panel1.Controls.Add(this.cmbTipo);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.txtCorreo);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Controls.Add(this.txtApellido2);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.txtApellido1);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.txtNombre);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.txtID);
-            this.panel1.Controls.Add(this.btnRegresar);
-            this.panel1.Controls.Add(this.dgvEmpleados);
-            this.panel1.Controls.Add(this.btnAgregar);
-            this.panel1.Controls.Add(this.btnModificar);
-            this.panel1.Controls.Add(this.btnEliminar);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 24);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(989, 394);
-            this.panel1.TabIndex = 16;
+            this.MainPanel.Controls.Add(this.label10);
+            this.MainPanel.Controls.Add(this.txtContra2);
+            this.MainPanel.Controls.Add(this.label9);
+            this.MainPanel.Controls.Add(this.txtContra);
+            this.MainPanel.Controls.Add(this.label8);
+            this.MainPanel.Controls.Add(this.txtUsuario);
+            this.MainPanel.Controls.Add(this.cmbTipo);
+            this.MainPanel.Controls.Add(this.label7);
+            this.MainPanel.Controls.Add(this.txtCorreo);
+            this.MainPanel.Controls.Add(this.label6);
+            this.MainPanel.Controls.Add(this.txtApellido2);
+            this.MainPanel.Controls.Add(this.label5);
+            this.MainPanel.Controls.Add(this.label4);
+            this.MainPanel.Controls.Add(this.txtApellido1);
+            this.MainPanel.Controls.Add(this.label3);
+            this.MainPanel.Controls.Add(this.txtNombre);
+            this.MainPanel.Controls.Add(this.label2);
+            this.MainPanel.Controls.Add(this.txtID);
+            this.MainPanel.Controls.Add(this.btnRegresar);
+            this.MainPanel.Controls.Add(this.dgvEmpleados);
+            this.MainPanel.Controls.Add(this.btnAgregar);
+            this.MainPanel.Controls.Add(this.btnModificar);
+            this.MainPanel.Controls.Add(this.btnEliminar);
+            this.MainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.MainPanel.Location = new System.Drawing.Point(0, 24);
+            this.MainPanel.Margin = new System.Windows.Forms.Padding(2);
+            this.MainPanel.Name = "MainPanel";
+            this.MainPanel.Size = new System.Drawing.Size(989, 394);
+            this.MainPanel.TabIndex = 16;
+            this.MainPanel.Click += new System.EventHandler(this.MainPanel_Click);
             // 
             // label10
             // 
@@ -404,7 +411,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
             this.ClientSize = new System.Drawing.Size(989, 418);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.MainPanel);
             this.Controls.Add(this.topPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -415,8 +422,8 @@
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.MainPanel.ResumeLayout(false);
+            this.MainPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -431,7 +438,7 @@
         private System.Windows.Forms.Panel topPanel;
         private System.Windows.Forms.Button btnMinimizar;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel MainPanel;
         private System.Windows.Forms.Button btnRegresar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtCorreo;
