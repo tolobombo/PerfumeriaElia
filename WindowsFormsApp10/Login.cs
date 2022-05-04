@@ -29,12 +29,11 @@ namespace WindowsFormsApp10
         //////////////////////////////////////////////////////////////////
         public void btnLogin_Click_1(object sender, EventArgs e)
         {
-            VerificarUsuario();
+            //VerificarUsuario();
 
-            /*
             mg.Show();
             this.Hide();
-            */
+            
         }
 
         private void txtPassword_KeyDown(object sender, KeyEventArgs e)
