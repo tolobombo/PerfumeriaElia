@@ -77,11 +77,11 @@ namespace WindowsFormsApp10
 
             try
             {
-                string st1 = string.Format("ALTER DATABASE [" + database + "] SET SINGLE_USER WITH ROLLBACK IMMEDIATE");
+                string st1 = string.Format("ALTER DATABASE [" + database + "] SET SINGLE_USER WITH ROLLBACK INMEDIATE");
                 SqlCommand comando1 = new SqlCommand(st1, conexion.GetConexion());
                 comando1.ExecuteNonQuery();
 
-                string st2 = string.Format("USE MASTER RESTORE DATABASE [" + database + "] FROM DISK='" + textBox2.Text + "' WITH REPLACE;");
+                string st2 = "USE MASTER RESTORE DATABASE [" + database + "] FROM DISK='" + textBox2.Text + "' WITH REPLACE;";
                 SqlCommand comando2 = new SqlCommand(st2, conexion.GetConexion());
                 comando2.ExecuteNonQuery();
 
