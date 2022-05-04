@@ -39,6 +39,7 @@
             this.btnMinimizar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.MainPanel = new System.Windows.Forms.Panel();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.txtContra2 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -58,7 +59,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtID = new System.Windows.Forms.TextBox();
             this.btnRegresar = new System.Windows.Forms.Button();
-            this.btnLimpiar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -229,6 +229,19 @@
             this.MainPanel.TabIndex = 16;
             this.MainPanel.Click += new System.EventHandler(this.MainPanel_Click);
             // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiar.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
+            this.btnLimpiar.Location = new System.Drawing.Point(808, 360);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(86, 27);
+            this.btnLimpiar.TabIndex = 25;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -244,6 +257,7 @@
             // 
             this.txtContra2.Location = new System.Drawing.Point(716, 281);
             this.txtContra2.Name = "txtContra2";
+            this.txtContra2.PasswordChar = '*';
             this.txtContra2.Size = new System.Drawing.Size(189, 20);
             this.txtContra2.TabIndex = 19;
             // 
@@ -262,6 +276,7 @@
             // 
             this.txtContra.Location = new System.Drawing.Point(716, 232);
             this.txtContra.Name = "txtContra";
+            this.txtContra.PasswordChar = '*';
             this.txtContra.Size = new System.Drawing.Size(189, 20);
             this.txtContra.TabIndex = 18;
             // 
@@ -408,19 +423,6 @@
             this.btnRegresar.Text = "Regresar";
             this.btnRegresar.UseVisualStyleBackColor = true;
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpiar.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
-            this.btnLimpiar.Location = new System.Drawing.Point(808, 360);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(86, 27);
-            this.btnLimpiar.TabIndex = 25;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // Empleados
             // 

@@ -21,7 +21,7 @@ namespace WindowsFormsApp10
         public Venta()
         {
             InitializeComponent();
-            Conexion.Abrir();
+            //Conexion.Abrir();              NO DEJA RESTORAR UN RESPALDO CUANDO YA HAY OTRA CONEXION ABIERTA
             LlenadoOtrosMarca();
             
         }

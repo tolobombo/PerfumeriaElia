@@ -125,7 +125,7 @@ namespace WindowsFormsApp10
         {
             cnn.Abrir();
 
-            String sql = "select * from empleados";
+            String sql = "select idEmpleado,nombreEmpleado,correoEmpleado,nombreUsuario,tipoUsuario from empleados";
             SqlDataAdapter SDA = new SqlDataAdapter(sql,cnn.GetConexion());
             DataSet DS = new System.Data.DataSet();
 
