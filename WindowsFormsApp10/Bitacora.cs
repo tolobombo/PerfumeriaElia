@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace WindowsFormsApp10
 {
@@ -18,14 +19,33 @@ namespace WindowsFormsApp10
         }
 
         ///////////////////////////////////////////////////////////////
-        
-        private void button5_Click(object sender, EventArgs e)
+
+
+        AbrirCerrarConexion cnn = new AbrirCerrarConexion();
+
+
+        ///////////////////////////////////////////////////////////////
+        public void CargarDatos()
+        {
+            cnn.Abrir();
+
+            String sql = "select * from bitacora";
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(sql, cnn.GetConexion());
+            DataSet dataSet = new System.Data.DataSet();
+
+            dataAdapter.Fill(dataSet, "bitacora");
+
+            dgvBitacora.DataSource = dataSet.Tables[0];
+
+            cnn.Cerrar();
+        }
+
+        public void LimpiarCasillas()
         {
 
         }
-
         ///////////////////////////////////////////////////////////////
-
+        
 
 
 
@@ -52,7 +72,7 @@ namespace WindowsFormsApp10
 
 
 
-        ///////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////// ARRASTRAR VENTANA
         bool mouseDown;
         private Point mousePos;
         private void topPanel_MouseDown(object sender, MouseEventArgs e)

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Bitacora));
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvBitacora = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -42,32 +42,43 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnRegresar = new System.Windows.Forms.Button();
             this.mainPanel = new System.Windows.Forms.Panel();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.btnCapturar = new System.Windows.Forms.Button();
+            this.cbox = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtEmpleadoID = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtProcesoID = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBitacora)).BeginInit();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.mainPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvBitacora
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(9, 4);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(730, 406);
-            this.dataGridView1.TabIndex = 1;
+            this.dgvBitacora.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBitacora.Location = new System.Drawing.Point(9, 46);
+            this.dgvBitacora.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvBitacora.Name = "dgvBitacora";
+            this.dgvBitacora.RowHeadersWidth = 51;
+            this.dgvBitacora.Size = new System.Drawing.Size(730, 302);
+            this.dgvBitacora.TabIndex = 1;
             // 
             // button2
             // 
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
-            this.button2.Location = new System.Drawing.Point(12, 415);
+            this.button2.Location = new System.Drawing.Point(9, 353);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(112, 37);
             this.button2.TabIndex = 3;
-            this.button2.Text = "Baja";
+            this.button2.Text = "Eliminar";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // button3
@@ -75,7 +86,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
-            this.button3.Location = new System.Drawing.Point(130, 415);
+            this.button3.Location = new System.Drawing.Point(175, 413);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(112, 37);
             this.button3.TabIndex = 4;
@@ -87,11 +98,11 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
-            this.button4.Location = new System.Drawing.Point(248, 415);
+            this.button4.Location = new System.Drawing.Point(127, 353);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(112, 37);
             this.button4.TabIndex = 5;
-            this.button4.Text = "Modificacion";
+            this.button4.Text = "Modificar";
             this.button4.UseVisualStyleBackColor = true;
             // 
             // button5
@@ -99,20 +110,19 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
-            this.button5.Location = new System.Drawing.Point(366, 415);
+            this.button5.Location = new System.Drawing.Point(334, 413);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(112, 37);
             this.button5.TabIndex = 6;
             this.button5.Text = "Respaldo";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
-            this.button6.Location = new System.Drawing.Point(484, 415);
+            this.button6.Location = new System.Drawing.Point(452, 413);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(112, 37);
             this.button6.TabIndex = 7;
@@ -194,9 +204,9 @@
             this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegresar.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRegresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
-            this.btnRegresar.Location = new System.Drawing.Point(654, 415);
+            this.btnRegresar.Location = new System.Drawing.Point(9, 413);
             this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(85, 37);
+            this.btnRegresar.Size = new System.Drawing.Size(112, 37);
             this.btnRegresar.TabIndex = 8;
             this.btnRegresar.Text = "Regresar";
             this.btnRegresar.UseVisualStyleBackColor = true;
@@ -205,8 +215,19 @@
             // mainPanel
             // 
             this.mainPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.mainPanel.Controls.Add(this.dateTimePicker1);
+            this.mainPanel.Controls.Add(this.btnCapturar);
+            this.mainPanel.Controls.Add(this.cbox);
+            this.mainPanel.Controls.Add(this.label6);
+            this.mainPanel.Controls.Add(this.label5);
+            this.mainPanel.Controls.Add(this.textBox3);
+            this.mainPanel.Controls.Add(this.label4);
+            this.mainPanel.Controls.Add(this.label3);
+            this.mainPanel.Controls.Add(this.txtEmpleadoID);
+            this.mainPanel.Controls.Add(this.label1);
+            this.mainPanel.Controls.Add(this.txtProcesoID);
             this.mainPanel.Controls.Add(this.btnRegresar);
-            this.mainPanel.Controls.Add(this.dataGridView1);
+            this.mainPanel.Controls.Add(this.dgvBitacora);
             this.mainPanel.Controls.Add(this.button6);
             this.mainPanel.Controls.Add(this.button2);
             this.mainPanel.Controls.Add(this.button5);
@@ -218,6 +239,112 @@
             this.mainPanel.Name = "mainPanel";
             this.mainPanel.Size = new System.Drawing.Size(751, 464);
             this.mainPanel.TabIndex = 20;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(175, 21);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(197, 20);
+            this.dateTimePicker1.TabIndex = 21;
+            // 
+            // btnCapturar
+            // 
+            this.btnCapturar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCapturar.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCapturar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
+            this.btnCapturar.Location = new System.Drawing.Point(627, 353);
+            this.btnCapturar.Name = "btnCapturar";
+            this.btnCapturar.Size = new System.Drawing.Size(112, 37);
+            this.btnCapturar.TabIndex = 20;
+            this.btnCapturar.Text = "Capturar";
+            this.btnCapturar.UseVisualStyleBackColor = true;
+            // 
+            // cbox
+            // 
+            this.cbox.FormattingEnabled = true;
+            this.cbox.Items.AddRange(new object[] {
+            "Iniciado",
+            "Finalizado"});
+            this.cbox.Location = new System.Drawing.Point(602, 20);
+            this.cbox.Name = "cbox";
+            this.cbox.Size = new System.Drawing.Size(137, 21);
+            this.cbox.TabIndex = 19;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
+            this.label6.Location = new System.Drawing.Point(599, 4);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(56, 14);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Estado:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
+            this.label5.Location = new System.Drawing.Point(375, 2);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(90, 14);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Descripción:";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(378, 20);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(218, 20);
+            this.textBox3.TabIndex = 15;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
+            this.label4.Location = new System.Drawing.Point(172, 4);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(48, 14);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Fecha:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
+            this.label3.Location = new System.Drawing.Point(89, 4);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(80, 14);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "IdEmleado:";
+            // 
+            // txtEmpleadoID
+            // 
+            this.txtEmpleadoID.Location = new System.Drawing.Point(92, 21);
+            this.txtEmpleadoID.Name = "txtEmpleadoID";
+            this.txtEmpleadoID.Size = new System.Drawing.Size(77, 20);
+            this.txtEmpleadoID.TabIndex = 11;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
+            this.label1.Location = new System.Drawing.Point(6, 4);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 14);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "IdProceso:";
+            // 
+            // txtProcesoID
+            // 
+            this.txtProcesoID.Location = new System.Drawing.Point(9, 21);
+            this.txtProcesoID.Name = "txtProcesoID";
+            this.txtProcesoID.Size = new System.Drawing.Size(77, 20);
+            this.txtProcesoID.TabIndex = 9;
             // 
             // Bitacora
             // 
@@ -232,17 +359,18 @@
             this.Name = "Bitacora";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Catalogo Bitacora";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBitacora)).EndInit();
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.mainPanel.ResumeLayout(false);
+            this.mainPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvBitacora;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
@@ -255,5 +383,16 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnRegresar;
         private System.Windows.Forms.Panel mainPanel;
+        private System.Windows.Forms.Button btnCapturar;
+        private System.Windows.Forms.ComboBox cbox;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtEmpleadoID;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtProcesoID;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
     }
 }
