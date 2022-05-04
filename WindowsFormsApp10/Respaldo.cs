@@ -51,8 +51,10 @@ namespace WindowsFormsApp10
                 conexion.Abrir();
                 SqlCommand command = new SqlCommand(cmd,conexion.GetConexion());
                 command.ExecuteNonQuery();
-                MessageBox.Show("El respaldo a sido creado");
+                MessageBox.Show("Se Realizó El Respaldo Correctamente","Respaldo",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                
                 conexion.Cerrar();
+                command.Dispose();
                 button2.Enabled=false;
             }
         }

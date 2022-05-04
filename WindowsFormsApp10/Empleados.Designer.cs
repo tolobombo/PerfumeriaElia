@@ -437,6 +437,7 @@
             this.Name = "Empleados";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Catalogo Empleados";
+            this.Shown += new System.EventHandler(this.Empleados_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
             this.topPanel.ResumeLayout(false);
             this.topPanel.PerformLayout();

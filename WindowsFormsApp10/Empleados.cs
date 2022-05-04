@@ -46,24 +46,7 @@ namespace WindowsFormsApp10
         }
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            dgvEmpleados.ClearSelection();
-            txtID.Text = "";
-            txtNombre.Text = "";
-            txtApellido1.Text = "";
-            txtApellido2.Text = "";
-            txtCorreo.Text = "";
-            cmbTipo.SelectedIndex = -1;
-            txtUsuario.Text = "";
-            txtContra.Text = "";
-            txtContra2.Text = "";
-
-            btnAgregar.Enabled = true;
-
-            txtID.Enabled = true;
-            txtUsuario.Enabled = true;
-            txtContra.Enabled = true;
-            txtContra2.Enabled = true;
-            cmbTipo.Enabled = true;
+            CargarDatos();
         }
         ////////////////////////////////////////////////////////////////////
 
@@ -71,7 +54,23 @@ namespace WindowsFormsApp10
 
 
         ////////////////////////////////////////////////////////////////////
-        
+        public void CargarDatos()
+        {
+            cnn.Abrir();
+
+            String sql = "select idEmpleado,nombreEmpleado,correoEmpleado,nombreUsuario,tipoUsuario from empleados";
+            SqlDataAdapter SDA = new SqlDataAdapter(sql,cnn.GetConexion());
+            DataSet dataset = new System.Data.DataSet();
+
+            SDA.Fill(dataset, "empleados");
+
+            dgvEmpleados.DataSource = dataset.Tables[0];
+
+            cnn.Cerrar();
+
+            LimpiarCasillas();
+        }
+
         public void VerificarDatos()
         {
             Regex correoRegex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", RegexOptions.IgnoreCase);
@@ -121,31 +120,17 @@ namespace WindowsFormsApp10
             }
         }
 
-        public void CargarDatos()
+        public void LimpiarCasillas()
         {
-            cnn.Abrir();
-
-            String sql = "select idEmpleado,nombreEmpleado,correoEmpleado,nombreUsuario,tipoUsuario from empleados";
-            SqlDataAdapter SDA = new SqlDataAdapter(sql,cnn.GetConexion());
-            DataSet DS = new System.Data.DataSet();
-
-            SDA.Fill(DS, "empleados");
-
-            dgvEmpleados.DataSource = DS.Tables[0];
-
-            cnn.Cerrar();
-
-
-            dgvEmpleados.ClearSelection();
             txtID.Text = "";
             txtNombre.Text = "";
             txtApellido1.Text = "";
             txtApellido2.Text = "";
             txtCorreo.Text = "";
-            cmbTipo.SelectedIndex = -1;
             txtUsuario.Text = "";
             txtContra.Text = "";
             txtContra2.Text = "";
+            cmbTipo.SelectedIndex = -1;
 
             txtID.Enabled = true;
             txtUsuario.Enabled = true;
@@ -154,7 +139,9 @@ namespace WindowsFormsApp10
             cmbTipo.Enabled = true;
 
             btnAgregar.Enabled = true;
+            dgvEmpleados.ClearSelection();
         }
+
         ////////////////////////////////////////////////////////////////////
 
 
@@ -328,6 +315,11 @@ namespace WindowsFormsApp10
         private void topPanel_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
+        }
+
+        private void Empleados_Shown(object sender, EventArgs e)
+        {
+            LimpiarCasillas();
         }
 
         ////////////////////////////////////////////////////////////////////
