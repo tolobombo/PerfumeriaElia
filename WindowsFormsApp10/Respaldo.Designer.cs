@@ -111,7 +111,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 30);
             this.button4.TabIndex = 5;
-            this.button4.Text = "Restorar";
+            this.button4.Text = "Restaurar";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -223,9 +223,9 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
             this.label3.Location = new System.Drawing.Point(5, 104);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 19);
+            this.label3.Size = new System.Drawing.Size(89, 19);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Restorar";
+            this.label3.Text = "Restaurar";
             // 
             // label2
             // 

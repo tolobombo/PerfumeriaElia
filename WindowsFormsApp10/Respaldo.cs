@@ -20,7 +20,8 @@ namespace WindowsFormsApp10
         public Respaldo()
         {
             InitializeComponent();
-           
+            button2.Enabled = false;
+            button4.Enabled = false;
         }
 
         /// SELECCIONAR CARPETA ///////////////////////////////////////////////////////////////// 
