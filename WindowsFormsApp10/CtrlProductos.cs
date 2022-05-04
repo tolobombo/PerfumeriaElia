@@ -43,6 +43,9 @@ namespace WindowsFormsApp10
 
                     lista.Add(_productos);
                 }
+
+                conexion.Cerrar();
+                command.Dispose();
             }
 
             catch (SqlException ex) 

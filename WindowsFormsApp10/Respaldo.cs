@@ -73,10 +73,10 @@ namespace WindowsFormsApp10
         private void button4_Click(object sender, EventArgs e)
         {
             string database = conexion.GetConexion().Database.ToString();
-            conexion.Abrir();
-
+            
             try
             {
+                conexion.Abrir();
                 string st1 = string.Format("ALTER DATABASE [" + database + "] SET SINGLE_USER WITH ROLLBACK INMEDIATE");
                 SqlCommand comando1 = new SqlCommand(st1, conexion.GetConexion());
                 comando1.ExecuteNonQuery();
