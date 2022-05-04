@@ -81,7 +81,7 @@ namespace WindowsFormsApp10
             //Verificar que se llenen todos los campos.
             if (txtID.Text.Equals("") || txtNombre.Text.Equals("") || txtApellido1.Text.Equals("") || txtApellido2.Text.Equals("") || txtCorreo.Text.Equals("") || txtUsuario.Text.Equals("") || txtContra.Text.Equals("") || txtContra2.Text.Equals("") || cmbTipo.SelectedIndex == -1)
             {
-                MessageBox.Show("Favor de llenar todos los campos.");
+                MessageBox.Show("Favor De Llenar Todos Los Campos.", "Empleados", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             //Validar Correo

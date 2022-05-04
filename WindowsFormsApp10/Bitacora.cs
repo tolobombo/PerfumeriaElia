@@ -16,6 +16,7 @@ namespace WindowsFormsApp10
         public Bitacora()
         {
             InitializeComponent();
+            CargarDatos();
         }
 
         ///////////////////////////////////////////////////////////////
@@ -25,8 +26,21 @@ namespace WindowsFormsApp10
 
 
         ///////////////////////////////////////////////////////////////
+        private void btnCapturar_Click(object sender, EventArgs e)
+        {
+            VerificarDatos();
+        }
+        ///////////////////////////////////////////////////////////////
+
+
+
+
+        ///////////////////////////////////////////////////////////////
         public void CargarDatos()
         {
+            dateTimePicker1.Value = DateTime.Now;
+            cboxEstado.SelectedIndex = 1;
+
             cnn.Abrir();
 
             String sql = "select * from bitacora";
@@ -38,6 +52,16 @@ namespace WindowsFormsApp10
             dgvBitacora.DataSource = dataSet.Tables[0];
 
             cnn.Cerrar();
+
+            LimpiarCasillas();
+        }
+
+        public void VerificarDatos()
+        {
+            if (txtProcesoID.Text.Equals("") || txtEmpleadoID.Text.Equals("") || txtDesc.Text.Equals("") || cboxEstado.SelectedIndex == -1)
+            {
+                MessageBox.Show("Favor De Llenar Todos Los Campos.","Bitacora",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
         }
 
         public void LimpiarCasillas()
@@ -95,6 +119,12 @@ namespace WindowsFormsApp10
         {
             mouseDown = false;
         }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            label7.Text = this.dateTimePicker1.Text;
+        }
+
 
         ///////////////////////////////////////////////////////////////
 

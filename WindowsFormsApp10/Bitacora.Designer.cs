@@ -44,15 +44,16 @@
             this.mainPanel = new System.Windows.Forms.Panel();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.btnCapturar = new System.Windows.Forms.Button();
-            this.cbox = new System.Windows.Forms.ComboBox();
+            this.cboxEstado = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtDesc = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtEmpleadoID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtProcesoID = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBitacora)).BeginInit();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -61,10 +62,12 @@
             // 
             // dgvBitacora
             // 
+            this.dgvBitacora.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBitacora.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBitacora.Location = new System.Drawing.Point(9, 46);
             this.dgvBitacora.Margin = new System.Windows.Forms.Padding(2);
             this.dgvBitacora.Name = "dgvBitacora";
+            this.dgvBitacora.RowHeadersVisible = false;
             this.dgvBitacora.RowHeadersWidth = 51;
             this.dgvBitacora.Size = new System.Drawing.Size(730, 302);
             this.dgvBitacora.TabIndex = 1;
@@ -215,12 +218,13 @@
             // mainPanel
             // 
             this.mainPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.mainPanel.Controls.Add(this.label7);
             this.mainPanel.Controls.Add(this.dateTimePicker1);
             this.mainPanel.Controls.Add(this.btnCapturar);
-            this.mainPanel.Controls.Add(this.cbox);
+            this.mainPanel.Controls.Add(this.cboxEstado);
             this.mainPanel.Controls.Add(this.label6);
             this.mainPanel.Controls.Add(this.label5);
-            this.mainPanel.Controls.Add(this.textBox3);
+            this.mainPanel.Controls.Add(this.txtDesc);
             this.mainPanel.Controls.Add(this.label4);
             this.mainPanel.Controls.Add(this.label3);
             this.mainPanel.Controls.Add(this.txtEmpleadoID);
@@ -242,10 +246,14 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(175, 21);
+            this.dateTimePicker1.CustomFormat = "";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(191, 20);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(197, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(81, 20);
             this.dateTimePicker1.TabIndex = 21;
+            this.dateTimePicker1.Value = new System.DateTime(2001, 5, 9, 0, 0, 0, 0);
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // btnCapturar
             // 
@@ -258,17 +266,18 @@
             this.btnCapturar.TabIndex = 20;
             this.btnCapturar.Text = "Capturar";
             this.btnCapturar.UseVisualStyleBackColor = true;
+            this.btnCapturar.Click += new System.EventHandler(this.btnCapturar_Click);
             // 
-            // cbox
+            // cboxEstado
             // 
-            this.cbox.FormattingEnabled = true;
-            this.cbox.Items.AddRange(new object[] {
+            this.cboxEstado.FormattingEnabled = true;
+            this.cboxEstado.Items.AddRange(new object[] {
             "Iniciado",
             "Finalizado"});
-            this.cbox.Location = new System.Drawing.Point(602, 20);
-            this.cbox.Name = "cbox";
-            this.cbox.Size = new System.Drawing.Size(137, 21);
-            this.cbox.TabIndex = 19;
+            this.cboxEstado.Location = new System.Drawing.Point(602, 19);
+            this.cboxEstado.Name = "cboxEstado";
+            this.cboxEstado.Size = new System.Drawing.Size(137, 21);
+            this.cboxEstado.TabIndex = 19;
             // 
             // label6
             // 
@@ -286,25 +295,25 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
-            this.label5.Location = new System.Drawing.Point(375, 2);
+            this.label5.Location = new System.Drawing.Point(275, 4);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(90, 14);
             this.label5.TabIndex = 16;
             this.label5.Text = "Descripción:";
             // 
-            // textBox3
+            // txtDesc
             // 
-            this.textBox3.Location = new System.Drawing.Point(378, 20);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(218, 20);
-            this.textBox3.TabIndex = 15;
+            this.txtDesc.Location = new System.Drawing.Point(278, 20);
+            this.txtDesc.Name = "txtDesc";
+            this.txtDesc.Size = new System.Drawing.Size(311, 20);
+            this.txtDesc.TabIndex = 15;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
-            this.label4.Location = new System.Drawing.Point(172, 4);
+            this.label4.Location = new System.Drawing.Point(191, 4);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 14);
             this.label4.TabIndex = 14;
@@ -315,17 +324,17 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
-            this.label3.Location = new System.Drawing.Point(89, 4);
+            this.label3.Location = new System.Drawing.Point(97, 4);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 14);
+            this.label3.Size = new System.Drawing.Size(88, 14);
             this.label3.TabIndex = 12;
-            this.label3.Text = "IdEmleado:";
+            this.label3.Text = "IdEmpleado:";
             // 
             // txtEmpleadoID
             // 
-            this.txtEmpleadoID.Location = new System.Drawing.Point(92, 21);
+            this.txtEmpleadoID.Location = new System.Drawing.Point(100, 20);
             this.txtEmpleadoID.Name = "txtEmpleadoID";
-            this.txtEmpleadoID.Size = new System.Drawing.Size(77, 20);
+            this.txtEmpleadoID.Size = new System.Drawing.Size(85, 20);
             this.txtEmpleadoID.TabIndex = 11;
             // 
             // label1
@@ -341,10 +350,20 @@
             // 
             // txtProcesoID
             // 
-            this.txtProcesoID.Location = new System.Drawing.Point(9, 21);
+            this.txtProcesoID.Location = new System.Drawing.Point(9, 20);
             this.txtProcesoID.Name = "txtProcesoID";
-            this.txtProcesoID.Size = new System.Drawing.Size(77, 20);
+            this.txtProcesoID.Size = new System.Drawing.Size(85, 20);
             this.txtProcesoID.TabIndex = 9;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
+            this.label7.Location = new System.Drawing.Point(355, 364);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "label7";
             // 
             // Bitacora
             // 
@@ -384,15 +403,16 @@
         private System.Windows.Forms.Button btnRegresar;
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.Button btnCapturar;
-        private System.Windows.Forms.ComboBox cbox;
+        private System.Windows.Forms.ComboBox cboxEstado;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtDesc;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtEmpleadoID;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtProcesoID;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label7;
     }
 }
