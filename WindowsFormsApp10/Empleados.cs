@@ -19,6 +19,11 @@ namespace WindowsFormsApp10
             InitializeComponent();
             CargarDatos();
         }
+        ////////////////////////////////////////////////////////////////////
+
+
+        AbrirCerrarConexion cnn = new AbrirCerrarConexion();
+
 
         ////////////////////////////////////////////////////////////////////
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -27,11 +32,17 @@ namespace WindowsFormsApp10
         }
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            BorrarDatos();
+            if (MessageBox.Show("Esta Seguro De Eliminar Este Registro?","Eliminar",MessageBoxButtons.YesNo,MessageBoxIcon.Question)==DialogResult.Yes)
+            {
+                BorrarDatos();
+            }
         }
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            ModificarDatos();
+            if (MessageBox.Show("Esta Seguro De Modificar Este Registro?", "Modificar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                ModificarDatos();
+            }
         }
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
@@ -60,7 +71,7 @@ namespace WindowsFormsApp10
 
 
         ////////////////////////////////////////////////////////////////////
-        AbrirCerrarConexion cnn = new AbrirCerrarConexion();
+        
         public void VerificarDatos()
         {
             Regex correoRegex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", RegexOptions.IgnoreCase);
@@ -110,7 +121,6 @@ namespace WindowsFormsApp10
             }
         }
 
-        ///CARGAR DATOS AL DATA GRID VIEW
         public void CargarDatos()
         {
             cnn.Abrir();
@@ -136,8 +146,21 @@ namespace WindowsFormsApp10
             txtUsuario.Text = "";
             txtContra.Text = "";
             txtContra2.Text = "";
-        }
 
+            txtID.Enabled = true;
+            txtUsuario.Enabled = true;
+            txtContra.Enabled = true;
+            txtContra2.Enabled = true;
+            cmbTipo.Enabled = true;
+
+            btnAgregar.Enabled = true;
+        }
+        ////////////////////////////////////////////////////////////////////
+
+
+
+
+        ////////////////////////////////////////////////////////////////////
         ///INSERTAR DATOS A LA BD
         public void InsertarDatos(string nombre)
         {
@@ -193,14 +216,6 @@ namespace WindowsFormsApp10
                 cmd.Dispose();
                 cnn.Cerrar();
 
-                txtID.Enabled = true;
-                txtUsuario.Enabled = true;
-                txtContra.Enabled = true;
-                txtContra2.Enabled = true;
-                cmbTipo.Enabled = true;
-
-                btnAgregar.Enabled = true;
-
                 CargarDatos();
             }
         }
@@ -224,6 +239,7 @@ namespace WindowsFormsApp10
 
             CargarDatos();
         }
+
         private void dgvEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)//botaba error si se daba clic en el nombre de las columnas del dgv (no puede con "-1")

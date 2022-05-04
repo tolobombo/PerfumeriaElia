@@ -77,7 +77,7 @@ namespace WindowsFormsApp10
 
             try
             {
-                string st1 = string.Format("ALTER DATABASE [" + database + "] SET SINGLE_USER WITH ROLLBACK INMEDIATE");
+                string st1 = string.Format("ALTER DATABASE [" + database + "] SET SINGLE_USER WITH ROLLBACK IMMEDIATE");
                 SqlCommand comando1 = new SqlCommand(st1, conexion.GetConexion());
                 comando1.ExecuteNonQuery();
 
