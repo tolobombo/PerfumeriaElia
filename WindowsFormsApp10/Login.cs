@@ -29,10 +29,10 @@ namespace WindowsFormsApp10
         //////////////////////////////////////////////////////////////////
         public void btnLogin_Click_1(object sender, EventArgs e)
         {
-            //VerificarUsuario();
+            VerificarUsuario();
 
-            mg.Show();
-            this.Hide();
+            //mg.Show();
+            //this.Hide();
             
         }
 
