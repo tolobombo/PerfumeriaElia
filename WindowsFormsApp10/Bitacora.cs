@@ -62,6 +62,14 @@ namespace WindowsFormsApp10
             {
                 MessageBox.Show("Favor De Llenar Todos Los Campos.","Bitacora",MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
+
+            if (cboxEstado.SelectedIndex==0 || cboxEstado.SelectedIndex == 1)
+            {
+                if (txtProcesoID.Text != "" && txtEmpleadoID.Text != "" && txtDesc.Text != "")
+                {
+                    InsertarDatos();
+                }
+            }
         }
 
         public void LimpiarCasillas()
@@ -69,7 +77,85 @@ namespace WindowsFormsApp10
 
         }
         ///////////////////////////////////////////////////////////////
-        
+
+
+
+
+        ///////////////////////////////////////////////////////////////
+        public void InsertarDatos()
+        {
+            try
+            {
+                cnn.Abrir();
+
+                SqlDataAdapter dataAdapter = new SqlDataAdapter();
+                String sql = "insert into bitacora (idProceso,idEmpleado,fechaProceso,desProceso,estaProceso) " +
+                             "values('" + txtProcesoID.Text + "','" + txtEmpleadoID.Text + "','" + this.dateTimePicker1.Text + "','" + txtDesc.Text + "','" + cboxEstado.SelectedItem.ToString() + "')";
+
+                SqlCommand cmd = new SqlCommand(sql, cnn.GetConexion());
+
+                dataAdapter.InsertCommand = new SqlCommand(sql, cnn.GetConexion());
+                dataAdapter.InsertCommand.ExecuteNonQuery();
+
+                cmd.Dispose();
+                cnn.Cerrar();
+
+                CargarDatos();
+            }
+            catch (Exception x)
+            {
+                MessageBox.Show(x.Message);
+            }
+        }
+
+        private string id = "";
+        public void BorrarDatos()
+        {
+            cnn.Abrir();
+
+            SqlDataAdapter SDA = new SqlDataAdapter();
+            String sql = "Delete bitacora where idEmpleado=" + id;
+
+            SqlCommand cmd = new SqlCommand(sql, cnn.GetConexion());
+
+            SDA.DeleteCommand = new SqlCommand(sql, cnn.GetConexion());
+            SDA.DeleteCommand.ExecuteNonQuery();
+
+            cmd.Dispose();
+            cnn.Cerrar();
+
+            CargarDatos();
+        }
+        private void dgvBitacora_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            /* 
+            if (e.RowIndex >= 0)//botaba error si se daba clic en el nombre de las columnas del dgv (no puede con "-1")
+            {
+                btnEliminar.Enabled = true;
+                btnModificar.Enabled = true;
+
+                btnAgregar.Enabled = false;
+
+                DataGridViewRow row = this.dgvEmpleados.Rows[e.RowIndex];
+                id = row.Cells["idEmpleado"].Value.ToString();
+
+                string nombre = row.Cells["nombreEmpleado"].Value.ToString();
+                string[] nombreArray = nombre.Split(' ');
+
+                txtID.Enabled = false;
+                txtUsuario.Enabled = false;
+                txtContra.Enabled = false;
+                txtContra2.Enabled = false;
+                cmbTipo.Enabled = false;
+
+                txtNombre.Text = nombreArray[0];
+                txtApellido1.Text = nombreArray[1];
+                txtApellido2.Text = nombreArray[2];
+                txtCorreo.Text = row.Cells["correoEmpleado"].Value.ToString();
+            }*/
+        }
+        ///////////////////////////////////////////////////////////////
+
 
 
 
@@ -124,6 +210,7 @@ namespace WindowsFormsApp10
         {
             label7.Text = this.dateTimePicker1.Text;
         }
+
 
 
         ///////////////////////////////////////////////////////////////
