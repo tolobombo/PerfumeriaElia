@@ -30,6 +30,18 @@ namespace WindowsFormsApp10
         {
             VerificarDatos();
         }
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            BorrarDatos();
+        }
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            ModificarDatos();
+        }
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            CargarDatos();
+        }
         ///////////////////////////////////////////////////////////////
 
 
@@ -38,9 +50,6 @@ namespace WindowsFormsApp10
         ///////////////////////////////////////////////////////////////
         public void CargarDatos()
         {
-            dateTimePicker1.Value = DateTime.Now;
-            cboxEstado.SelectedIndex = 1;
-
             cnn.Abrir();
 
             String sql = "select * from bitacora";
@@ -54,6 +63,24 @@ namespace WindowsFormsApp10
             cnn.Cerrar();
 
             LimpiarCasillas();
+        }
+        public void LimpiarCasillas()
+        {
+            dtpFecha.Value = DateTime.Now;
+
+            txtProcesoID.Text = "";
+            txtEmpleadoID.Text = "";
+            txtDesc.Text = "";
+            
+            cboxEstado.SelectedIndex = 1;
+
+            btnEliminar.Enabled = false;
+            btnModificar.Enabled = false;
+
+            txtProcesoID.Enabled = true;
+            btnCapturar.Enabled = true;
+            cboxEstado.Enabled = true;
+            dgvBitacora.ClearSelection();
         }
 
         public void VerificarDatos()
@@ -72,10 +99,6 @@ namespace WindowsFormsApp10
             }
         }
 
-        public void LimpiarCasillas()
-        {
-
-        }
         ///////////////////////////////////////////////////////////////
 
 
@@ -90,7 +113,7 @@ namespace WindowsFormsApp10
 
                 SqlDataAdapter dataAdapter = new SqlDataAdapter();
                 String sql = "insert into bitacora (idProceso,idEmpleado,fechaProceso,desProceso,estaProceso) " +
-                             "values('" + txtProcesoID.Text + "','" + txtEmpleadoID.Text + "','" + this.dateTimePicker1.Text + "','" + txtDesc.Text + "','" + cboxEstado.SelectedItem.ToString() + "')";
+                             "values('" + txtProcesoID.Text + "','" + txtEmpleadoID.Text + "','" + this.dtpFecha.Text + "','" + txtDesc.Text + "','" + cboxEstado.SelectedItem.ToString() + "')";
 
                 SqlCommand cmd = new SqlCommand(sql, cnn.GetConexion());
 
@@ -113,13 +136,31 @@ namespace WindowsFormsApp10
         {
             cnn.Abrir();
 
-            SqlDataAdapter SDA = new SqlDataAdapter();
-            String sql = "Delete bitacora where idEmpleado=" + id;
+            SqlDataAdapter dataAdapter = new SqlDataAdapter();
+            String sql = "Delete bitacora where idProceso=" + id;
 
             SqlCommand cmd = new SqlCommand(sql, cnn.GetConexion());
 
-            SDA.DeleteCommand = new SqlCommand(sql, cnn.GetConexion());
-            SDA.DeleteCommand.ExecuteNonQuery();
+            dataAdapter.DeleteCommand = new SqlCommand(sql, cnn.GetConexion());
+            dataAdapter.DeleteCommand.ExecuteNonQuery();
+
+            cmd.Dispose();
+            cnn.Cerrar();
+
+            CargarDatos();
+        }
+
+        public void ModificarDatos()
+        {
+            cnn.Abrir();
+
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            String sql = "Update bitacora set idEmpleado='" + txtEmpleadoID.Text + "',fechaProceso='" + this.dtpFecha.Text + "',desProceso='" + txtDesc.Text + "' where idProceso=" + id;
+
+            SqlCommand cmd = new SqlCommand(sql, cnn.GetConexion());
+
+            adapter.UpdateCommand = new SqlCommand(sql, cnn.GetConexion());
+            adapter.UpdateCommand.ExecuteNonQuery();
 
             cmd.Dispose();
             cnn.Cerrar();
@@ -128,31 +169,24 @@ namespace WindowsFormsApp10
         }
         private void dgvBitacora_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            /* 
+            
             if (e.RowIndex >= 0)//botaba error si se daba clic en el nombre de las columnas del dgv (no puede con "-1")
             {
+                DataGridViewRow row = this.dgvBitacora.Rows[e.RowIndex];
+                id = row.Cells["idProceso"].Value.ToString();
+
                 btnEliminar.Enabled = true;
                 btnModificar.Enabled = true;
 
-                btnAgregar.Enabled = false;
+                btnCapturar.Enabled = false;
 
-                DataGridViewRow row = this.dgvEmpleados.Rows[e.RowIndex];
-                id = row.Cells["idEmpleado"].Value.ToString();
+                txtProcesoID.Enabled = false;
+                cboxEstado.Enabled = false;
 
-                string nombre = row.Cells["nombreEmpleado"].Value.ToString();
-                string[] nombreArray = nombre.Split(' ');
-
-                txtID.Enabled = false;
-                txtUsuario.Enabled = false;
-                txtContra.Enabled = false;
-                txtContra2.Enabled = false;
-                cmbTipo.Enabled = false;
-
-                txtNombre.Text = nombreArray[0];
-                txtApellido1.Text = nombreArray[1];
-                txtApellido2.Text = nombreArray[2];
-                txtCorreo.Text = row.Cells["correoEmpleado"].Value.ToString();
-            }*/
+                txtEmpleadoID.Text = row.Cells["idEmpleado"].Value.ToString();
+                this.dtpFecha.Text = row.Cells["fechaProceso"].Value.ToString();
+                txtDesc.Text = row.Cells["desProceso"].Value.ToString();
+            }
         }
         ///////////////////////////////////////////////////////////////
 
@@ -205,14 +239,25 @@ namespace WindowsFormsApp10
         {
             mouseDown = false;
         }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        ///////////////////////////////////////////////////////////////
+        private void mainPanel_Click(object sender, EventArgs e)
         {
-            label7.Text = this.dateTimePicker1.Text;
+            dgvBitacora.ClearSelection();
+            btnEliminar.Enabled = false;
+            btnModificar.Enabled = false;
         }
 
+        private void topPanel_Click(object sender, EventArgs e)
+        {
+            dgvBitacora.ClearSelection();
+            btnEliminar.Enabled = false;
+            btnModificar.Enabled = false;
+        }
 
-
+        private void Bitacora_Shown(object sender, EventArgs e)
+        {
+            LimpiarCasillas();
+        }
         ///////////////////////////////////////////////////////////////
 
     }
