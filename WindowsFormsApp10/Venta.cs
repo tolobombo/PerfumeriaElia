@@ -58,10 +58,15 @@ namespace WindowsFormsApp10
         ///////////////////////////////////////////////////////////////// REGRESAR, MINIMIZAR Y SALIR
         private void btnRegresar_Click(object sender, EventArgs e)
         {
-            Login login = new Login();
-            login.Show();
-            this.Close();
-            Conexion.Cerrar();
+
+            if (MessageBox.Show("La Sesion Se Cerrará, Desea Continuar", "Salir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Login login = new Login();
+                login.Show();
+                this.Close();
+                Conexion.Cerrar();
+            }
+
             
         }
 
