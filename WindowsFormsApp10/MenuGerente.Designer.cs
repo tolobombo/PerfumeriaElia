@@ -71,54 +71,58 @@
             // 
             // btnInv
             // 
+            this.btnInv.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
             this.btnInv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnInv.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
+            this.btnInv.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
             this.btnInv.Location = new System.Drawing.Point(71, 117);
             this.btnInv.Name = "btnInv";
             this.btnInv.Size = new System.Drawing.Size(120, 40);
             this.btnInv.TabIndex = 2;
             this.btnInv.Text = "Inventario";
-            this.btnInv.UseVisualStyleBackColor = true;
+            this.btnInv.UseVisualStyleBackColor = false;
             this.btnInv.Click += new System.EventHandler(this.btnInv_Click);
             // 
             // btnEmp
             // 
+            this.btnEmp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
             this.btnEmp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEmp.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEmp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
+            this.btnEmp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
             this.btnEmp.Location = new System.Drawing.Point(71, 163);
             this.btnEmp.Name = "btnEmp";
             this.btnEmp.Size = new System.Drawing.Size(120, 40);
             this.btnEmp.TabIndex = 3;
             this.btnEmp.Text = "Empleados";
-            this.btnEmp.UseVisualStyleBackColor = true;
+            this.btnEmp.UseVisualStyleBackColor = false;
             this.btnEmp.Click += new System.EventHandler(this.btnEmp_Click);
             // 
             // btnVen
             // 
+            this.btnVen.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
             this.btnVen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnVen.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
+            this.btnVen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
             this.btnVen.Location = new System.Drawing.Point(71, 209);
             this.btnVen.Name = "btnVen";
             this.btnVen.Size = new System.Drawing.Size(120, 40);
             this.btnVen.TabIndex = 4;
             this.btnVen.Text = "Ventas";
-            this.btnVen.UseVisualStyleBackColor = true;
+            this.btnVen.UseVisualStyleBackColor = false;
             this.btnVen.Click += new System.EventHandler(this.btnVen_Click);
             // 
             // btnBit
             // 
+            this.btnBit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
             this.btnBit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBit.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
+            this.btnBit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
             this.btnBit.Location = new System.Drawing.Point(71, 71);
             this.btnBit.Name = "btnBit";
             this.btnBit.Size = new System.Drawing.Size(120, 40);
             this.btnBit.TabIndex = 5;
             this.btnBit.Text = "Bitacora";
-            this.btnBit.UseVisualStyleBackColor = true;
+            this.btnBit.UseVisualStyleBackColor = false;
             this.btnBit.Click += new System.EventHandler(this.btnBit_Click);
             // 
             // topPanel
@@ -198,28 +202,30 @@
             // 
             // btnRes
             // 
+            this.btnRes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
             this.btnRes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRes.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
+            this.btnRes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
             this.btnRes.Location = new System.Drawing.Point(71, 255);
             this.btnRes.Name = "btnRes";
             this.btnRes.Size = new System.Drawing.Size(120, 40);
             this.btnRes.TabIndex = 7;
             this.btnRes.Text = "Respaldo";
-            this.btnRes.UseVisualStyleBackColor = true;
+            this.btnRes.UseVisualStyleBackColor = false;
             this.btnRes.Click += new System.EventHandler(this.btnRes_Click);
             // 
             // btnRegresar
             // 
+            this.btnRegresar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
             this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegresar.Font = new System.Drawing.Font("Bookman Old Style", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(167)))), ((int)(((byte)(91)))));
+            this.btnRegresar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(68)))), ((int)(((byte)(68)))));
             this.btnRegresar.Location = new System.Drawing.Point(89, 310);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(85, 37);
             this.btnRegresar.TabIndex = 6;
             this.btnRegresar.Text = "Regresar";
-            this.btnRegresar.UseVisualStyleBackColor = true;
+            this.btnRegresar.UseVisualStyleBackColor = false;
             this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
             // MenuGerente
